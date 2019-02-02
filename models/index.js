@@ -19,7 +19,7 @@ if (config.use_env_variable) {
   );
 }
 
-var nameOfUser = sequelize.define("nameOfUser", {
+var userAccount = sequelize.define("userAccount", {
   email: Sequelize.STRING,
   name: Sequelize.STRING,
   zipcode: Sequelize.INTEGER,
@@ -29,10 +29,14 @@ var nameOfUser = sequelize.define("nameOfUser", {
 });
 
 // Syncs with DB
-nameOfUser.sync();
+userAccount.sync();
 
 // Makes the Book Model available for other files (will also create a table)
-module.exports = nameOfUser;
+module.exports = userAccount;
+
+
+// Leaving these here in case we need them eventually
+//____________________________________________________________________________________________________________________________
 
 // fs.readdirSync(__dirname)
 //   .filter(function(file) {
