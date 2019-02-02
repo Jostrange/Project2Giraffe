@@ -19,24 +19,39 @@ if (config.use_env_variable) {
   );
 }
 
-fs.readdirSync(__dirname)
-  .filter(function(file) {
-    return (
-      file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
-    );
-  })
-  .forEach(function(file) {
-    var model = sequelize.import(path.join(__dirname, file));
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(function(modelName) {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
+var nameOfUser = sequelize.define("nameOfUser", {
+  email: Sequelize.STRING,
+  name: Sequelize.STRING,
+  zipcode: Sequelize.INTEGER,
+  category: Sequelize.STRING,
+  descriptionOfItem: Sequelize.STRING,
+  photoURL: Sequelize.STRING
 });
 
-db.sequelize = sequelize;
-db.Sequelize = Sequelize;
+// Syncs with DB
+nameOfUser.sync();
 
-module.exports = db;
+// Makes the Book Model available for other files (will also create a table)
+module.exports = nameOfUser;
+
+// fs.readdirSync(__dirname)
+//   .filter(function(file) {
+//     return (
+//       file.indexOf(".") !== 0 && file !== basename && file.slice(-3) === ".js"
+//     );
+//   })
+//   .forEach(function(file) {
+//     var model = sequelize.import(path.join(__dirname, file));
+//     db[model.name] = model;
+//   });
+
+// Object.keys(db).forEach(function(modelName) {
+//   if (db[modelName].associate) {
+//     db[modelName].associate(db);
+//   }
+// });
+
+// db.sequelize = sequelize;
+// db.Sequelize = Sequelize;
+
+// module.exports = db;

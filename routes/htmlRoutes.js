@@ -1,9 +1,13 @@
-var db = require("../models");
+var db = require("../models/");
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+    db.Tradesies.findAll({}).then(function(userAccount) {
+      var hbsObject = {
+        userAccount: userAccount,
+        layout: 'main',
+      };
       res.render("index", {
         msg: "Welcome!",
         examples: dbExamples
@@ -12,10 +16,12 @@ module.exports = function(app) {
   });
 
   // Load example page and pass in an example by id
-  app.get("/example/:id", function(req, res) {
-    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("example", {
-        example: dbExample
+  app.get("/userAccount/:id", function(req, res) {
+    db.Tradesies.findOne({ where: { id: req.params.id } }).then(function(userAccount) {
+      console.log(userAccount);
+      console.log(photoLink);
+      res.render("userAccount", {
+        userAccount: userAccount
       });
     });
   });
@@ -25,3 +31,5 @@ module.exports = function(app) {
     res.render("404");
   });
 };
+
+// I fixed this to match the db (josie)
