@@ -1,33 +1,155 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
+{{!-- NAVBAR --}}
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <img id="logo" src="../styles/images/logo.png">
+    </a>
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Sort by
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Food
+          </a>
+          <a class="navbar-item">
+            Products
+          </a>
+          <a class="navbar-item">
+            Services
+          </a>
+          <a class="navbar-item">
+            Clothing
+          </a>
+          <a class="navbar-item">
+            Beauty & Health
+          </a>
+          <a class="navbar-item">
+            Other
+          </a>
+        </div>
       </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div id="wordsinnav">Post an item!</div>
+        <div class="buttons">
+          <a id="signup" class="button is-primary modal-trigger" data-target="signup-modal">
+            <strong>Sign up</strong>
+          </a>
+          <a id="signin" class="button is-light modal-trigger" data-target="signin-modal">
+            Log in
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+{{!-- FEED --}}
+<div class="container">
+  <ul id="feedcontainer" class="collection">
+    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+    <li id="post" data-id="{{this.id}}" class="collection-item avatar">
+
+      <span id="username" class="title">Username goes here</span>
+      <p> Test</p>
+      <p> Test</p>
+      <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+    </li>
+  </ul>
+</div>
+
+{{!-- MODAL FOR SIGN UP --}}
+
+<div id="signup-modal" class="modal">
+  <div class="modal-content col s12">
+    <img id="signupmodal-logo" src="../styles/images/logo.png">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="newEmailAddress" type="text" class="validate">
+            <label for="newEmailAddress">Email Address</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="newUsername" type="text" class="validate">
+            <label for="newUsername">Username</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="newPassword" type="text" class="validate">
+            <label for="newPassword">Password</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="confirmPassword" type="text" class="validate">
+            <label for="confirmPassword">Confirm Password</label>
+          </div>
+        </div>
+        <a id="signupSubmitBtn" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Sign Up!</a>
     </div>
   </div>
 </div>
 
+{{!-- MODALFOR SIGN IN --}}
+
+<div id="signin-modal" class="modal">
+  <div class="modal-content col s12">
+    <img id="modal-logo" src="../styles/images/logo.png">
+
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="enterUsername" type="text" class="validate">
+            <label for="enterUsername">Username</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="enterPassword" type="text" class="validate">
+            <label for="enterPassword">Password</label>
+          </div>
+        </div>
+        <a id="signinSubmitBtn" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Sign In</a>
+    </div>
+  </div>
+</div>
+
+
+
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="/js/index.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function () {
+
+    $("#signup").on("click", function (event) {
+      event.preventDefault();
+      $('#signup-modal').modal();
+    });
+
+    $("#signin").on("click", function (event) {
+      event.preventDefault();
+      $('#signin-modal').modal();
+    });
+  });
+
+</script>

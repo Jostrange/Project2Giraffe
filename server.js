@@ -27,12 +27,14 @@ require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 
+app.get("/userpage", function(req, res) {
+  res.render("userpage");
+});
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
-
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function() {
