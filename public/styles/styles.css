@@ -1,3 +1,95 @@
-.list-group-item {
+/* .list-group-item {
   line-height: 2.5;
+} */
+
+body {
+margin: 0px;
+}
+
+.navbar {
+  width: 100%;
+  margin: 0;
+  height: 5rem;
+}
+
+#logo {
+  margin-left: 10px;
+  height: 70px;
+  width: 220px;
+}
+
+#wordsinnav {
+  margin-right: 10px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#signup {
+  background-color: navy;
+  width: 110px;
+}
+
+#signin {
+  font-weight: 500;
+  width: 110px;
+}
+
+#feedcontainer {
+  margin: 5px auto;
+  width: 85%;
+}
+
+#modal-logo {
+  text-align: center;
+  width: 500px;
+  height: 120px;
+  margin: 10px auto 20px 25px;
+  padding: 10px;
+}
+
+.input-field label {
+  color: navy;
+}
+/* label focus color */
+.input-field input[type=text]:focus + label {
+  color: navy;
+}
+
+.input-field input[type=text].valid {
+  border-bottom: 1px solid navy;
+  box-shadow: 0 1px 0 0 navy;
+}
+/* invalid color */
+.input-field input[type=text].invalid {
+  border-bottom: 1px solid navy;
+  box-shadow: 0 1px 0 0 navy; 
+}
+/* label underline focus color */
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid navy;
+  box-shadow: 0 1px 0 0 navy;
+}
+.input-field .prefix.active {
+  color: navy;
+}
+
+#signinSubmitBtn {
+  width: 50%;
+  text-align: center;
+  margin: auto;
+  background-color: navy;
+  font-size: 16px;
+}
+
+#signupmodal-logo {
+  width: 380px;
+  height: 80px;
+  margin: 10px auto 10px 100px;
+}
+
+#signupSubmitBtn {
+  width: 50%;
+  text-align: center;
+  background-color: navy;
+  font-size: 16px;
 }
