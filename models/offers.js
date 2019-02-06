@@ -45,5 +45,5 @@ module.exports = function (sequelize, DataTypes) {
   // offers.associate = function (models) {
   //   models.user.hasMany(models.tradeOffer);
   // };
-  // return offers;
+  return offers;
 };

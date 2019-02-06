@@ -17,11 +17,12 @@ module.exports = function(app) {
       query.UserId = req.query.user_id;
     }
 
-    db.Post.findAll({
+    db.postItem.findAll({
       where: query,
       include: [db.User]
     }).then(function(dbPost) {
       res.json(dbPost);
+      // res.render("index", { data: dbPost });
     });
 
   });

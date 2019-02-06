@@ -1,8 +1,8 @@
 {
   "development": {
     "username": "root",
-    "password": "Googleit1232",
-    "database": "exampledb",
+    "password": "",
+    "database": "Tradesies",
     "host": "localhost",
     "dialect": "mysql"
   },

@@ -14,13 +14,15 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       validate: {
         len: [1]
-      },
+      }
+    },
       apiID: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           len: [1]
-        },
+        }
+      },
 
         email: {
           type: DataTypes.TEXT,
@@ -31,7 +33,7 @@ module.exports = function (sequelize, DataTypes) {
           type: DataTypes.INTEGER,
           allowNull: false,
           len: [1]
-        },
+        }
       
       });
   //commenting this out until we have more understanding of how we are routing/using the data
@@ -41,5 +43,5 @@ module.exports = function (sequelize, DataTypes) {
   //     onDelete: "cascade"
   //   });
   // };
-  // return user;
+  return user;
 };
