@@ -10,6 +10,7 @@ var PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+app.use(express.static("public"));
 
 // Handlebars
 app.engine(
@@ -28,9 +29,9 @@ require("./routes/user-api-routes")(app);
 
 var syncOptions = { force: false };
 
-app.get("/userpage", function(req, res) {
-  res.render("userpage");
-});
+// app.get("/userpage", function(req, res) {
+//   res.render("userpage");
+// });
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 if (process.env.NODE_ENV === "test") {
