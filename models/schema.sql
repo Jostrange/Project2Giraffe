@@ -4,13 +4,10 @@ CREATE DATABASE Tradesies;
 USE Tradesies;
 
 -- CREATE TABLE CreateAccount(
--- id integer(11),
--- nameOfUser varchar(255),
--- email varchar(255),
--- zipcode integer(11),
--- category varchar(255),
--- descriptionOfItem varchar(255),
--- photoURL varchar(255)
+-- Api_ID INTEGER(11)
+-- user_name VARCHAR(255),
+-- email_account VARCHAR(255),
+-- zipcode_location INTEGER(11),
 -- );
 
 
@@ -18,25 +15,20 @@ USE Tradesies;
 
 
 -- CREATE TABLE offers(
--- id integer(11),
--- nameOfUser varchar(255),
--- email varchar(255),
--- zipcode integer(11),
--- category varchar(255),
--- descriptionOfItem varchar(255),
--- photoURL varchar(255));
+-- offer_contact varchar(255),
+-- offer_category varchar(255),
+-- offer_description varchar(255),
+-- offer_PhotoURL varchar(255));
 
 -- SELECT * FROM offers ;
 
 
 -- CREATE TABLE post(
--- id integer(11),
--- nameOfUser varchar(255),
--- email varchar(255),
--- zipcode integer(11),
--- category varchar(255),
--- descriptionOfItem varchar(255),
--- photoURL varchar(255));
+-- post_Contact varchar(255),
+-- email_post_contact varchar(255),
+-- post_category varchar(255),
+-- postitem_description varchar(255),
+-- post_photoURL varchar(255));
 
 
 -- SELECT * FROM post;
