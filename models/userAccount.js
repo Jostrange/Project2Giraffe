@@ -3,37 +3,19 @@
 
 module.exports = function (sequelize, DataTypes) {
   var user = sequelize.define("user", {
-    id: {
-      type: DataTypes.INTEGER,
+    apiID: {
+      type: DataTypes.STRING,
       allowNull: false,
       autoIncrement: true,
       primaryKey: true
     },
-    nameOfUser: {
-      type: DataTypes.STRING,
+    zipcode: {
+      type: DataTypes.INTEGER,
       allowNull: false,
-      validate: {
-        len: [1]
-      },
-      apiID: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        validate: {
-          len: [1]
-        },
+      len: [1]
+    },
 
-        email: {
-          type: DataTypes.TEXT,
-          allowNull: false,
-          len: [1]
-        },
-        zipcode: {
-          type: DataTypes.INTEGER,
-          allowNull: false,
-          len: [1]
-        },
-      
-      });
+  });
   //commenting this out until we have more understanding of how we are routing/using the data
   // user.associate = function(models) {
   //   postItem.hasMany(models.post, {
