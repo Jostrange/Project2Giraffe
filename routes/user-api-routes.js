@@ -33,14 +33,14 @@ module.exports = function(app) {
       },
       include: [db.Post,db.Offer]
     }).then(function(dbUser) {
-      res.json(dbuser);
+      res.json(dbUser);
     });
   });
 
   app.post("/api/users", function(req, res) {
     db.user.create(req.body).then(function(dbUser) {
 
-      res.json(dbuser);
+      res.json(dbUser);
 
     });
   });
@@ -51,7 +51,7 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbUser) {
-      res.json(dbuser);
+      res.json(dbUser);
     });
   });
 
