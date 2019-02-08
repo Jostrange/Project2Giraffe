@@ -27,29 +27,31 @@ module.exports = function(app) {
 
   app.get("/api/users/:id", function(req, res) {
     
-    db.User.findOne({
+    db.user.findOne({
       where: {
         id: req.params.id
       },
       include: [db.Post,db.Offer]
     }).then(function(dbUser) {
-      res.json(dbUser);
+      res.json(dbuser);
     });
   });
 
   app.post("/api/users", function(req, res) {
     db.user.create(req.body).then(function(dbUser) {
-      res.json(dbUser);
+
+      res.json(dbuser);
+
     });
   });
 
   app.delete("/api/users/:id", function(req, res) {
-    db.User.destroy({
+    db.user.destroy({
       where: {
         id: req.params.id
       }
     }).then(function(dbUser) {
-      res.json(dbUser);
+      res.json(dbuser);
     });
   });
 

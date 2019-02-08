@@ -3,7 +3,6 @@ module.exports = function(sequelize, DataTypes) {
     FullName: {
       type: DataTypes.STRING,
       allowNull: false,
-      // primaryKey: true
     },
     userImageURL: {
       type: DataTypes.STRING,
