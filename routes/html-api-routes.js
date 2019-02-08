@@ -22,9 +22,9 @@ module.exports = function(app) {
   });
 
   // Route to the logged in page
-  app.get("/loggedIn", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/loggeIn.html"));
-  });
+  // app.get("/loggedIn", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/loggeIn.html"));
+  // });
 
   app.get("*", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/home.html"));

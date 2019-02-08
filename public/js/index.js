@@ -27,6 +27,17 @@ var API = {
       url: "api/examples/" + id,
       type: "DELETE"
     });
+  },
+
+  saveUser: function(example){
+    return $.ajax({
+      headers: {
+        "Content-Type": "application/json"
+      },
+      type: "POST",
+      url: "api/users",
+      data: JSON.stringify(example)
+    })
   }
 };
 
@@ -130,17 +141,26 @@ var handleDeleteBtnClick = function() {
 function onSignIn(googleUser) {
   // Useful data for your client-side scripts:
   var profile = googleUser.getBasicProfile();
-  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-  console.log('Full Name: ' + profile.getName());
-  console.log('Given Name: ' + profile.getGivenName());
+  console.log("ID: " +          profile.getId()); // Don't send this directly to your server!
+  console.log('Full Name: ' +   profile.getName());
+  console.log('Given Name: ' +  profile.getGivenName());
   console.log('Family Name: ' + profile.getFamilyName());
-  console.log("Image URL: " + profile.getImageUrl());
-  console.log("Email: " + profile.getEmail());
+  console.log("Image URL: " +   profile.getImageUrl());
+  console.log("Email: " +       profile.getEmail());
 
   // // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
   console.log(profile)
+  //we can use what we need from this
+  var userObject = {
+    FullName:     profile.getName(),
+    FirstName:    profile.givenName(),
+    Surname:      profile.getFamilyName(),
+    userImageURL: profile.getImageUrl(),
+    email:        profile.getEmail()
+  }
+  API.saveUser(userObject)
   window.location.href = "/userpage";
 
   
