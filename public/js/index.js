@@ -81,6 +81,38 @@ var handleFormSubmit = function(event) {
   $exampleText.val("");
   $exampleDescription.val("");
 };
+// Here is code that does similarly to above but for tradesies user posts
+// This function will  be called by a click
+var postSubmit = function(event) {
+  event.preventDefault;
+  //I'm making an object based off the post form info.
+  // var newPost = {
+  //   poster:    "user1",
+  //   title:     "coffee beans",
+  //   body:      "Hey! I'm a coffee worker and I have so many free beans and im going to die of starvation please does anybody have fooodddd we can trade.",
+  //   image:     "image.jpg",
+  //   category:  "goods",
+  //   location:  "seattle",
+  //   zip:       "98102"
+  // };
+  var newPost = {
+    poster: $("#postusername").val().trim(),
+    title: $("postItemName").val().trim(),
+    body: $("#postDescription").val().trim(),
+    //need more code for image upload
+    image: $("postPhoto").val(),
+    category: $("input[name='group1']:checked").val(),
+    //Waiting on location input
+    location: $("post-location").val().trim()
+  };
+  console.log(newPost);
+
+  //Recycles template function for saving example
+  API.saveExample(newPost).then(function(){ 
+    refreshExamples();
+  })
+
+}
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
@@ -94,6 +126,36 @@ var handleDeleteBtnClick = function() {
   });
 };
 
+//Google sign in script from docs
+function onSignIn(googleUser) {
+  // Useful data for your client-side scripts:
+  var profile = googleUser.getBasicProfile();
+  console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+  console.log('Full Name: ' + profile.getName());
+  console.log('Given Name: ' + profile.getGivenName());
+  console.log('Family Name: ' + profile.getFamilyName());
+  console.log("Image URL: " + profile.getImageUrl());
+  console.log("Email: " + profile.getEmail());
+
+  // // The ID token you need to pass to your backend:
+  var id_token = googleUser.getAuthResponse().id_token;
+  console.log("ID Token: " + id_token);
+  console.log(profile);
+  
+  
+}
+//code for signing out from google api
+$("#logout").on("click", function(){
+function signOut() {
+  var auth2 = gapi.auth2.getAuthInstance();
+  auth2.signOut().then(function () {
+    console.log('User signed out.');
+  });
+  
+}
+});
+
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);
+$("submitBtn").on("click", postSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

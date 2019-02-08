@@ -15,6 +15,12 @@ module.exports = function(app) {
     res.render("index");
   });
 
+  //user page code
+  app.get("/userpage", function(req, res) {
+    // res.sendFile(path.join(__dirname, "../public/home.html"));
+    res.render("userpage");
+  });
+
   // Route to the logged in page
   app.get("/loggedIn", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/loggeIn.html"));
