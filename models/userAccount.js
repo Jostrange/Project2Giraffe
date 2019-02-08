@@ -1,12 +1,17 @@
 module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define("user", {
-    apiID: {
+    FullName: {
       type: DataTypes.STRING,
       allowNull: false,
       primaryKey: true
     },
-    zipcode: {
-      type: DataTypes.INTEGER,
+    userImageURL: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      len: [1]
+    },
+    email: {
+      type: DataTypes.STRING,
       allowNull: false,
       len: [1]
     }
