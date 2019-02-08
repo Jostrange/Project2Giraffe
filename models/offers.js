@@ -1,21 +1,9 @@
 module.exports = function (sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
-    id: {
+id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
-    },
-    nameOfUser: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    email: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
     },
     zipcode: {
       type: DataTypes.INTEGER,
