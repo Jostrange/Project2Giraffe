@@ -140,12 +140,15 @@ function onSignIn(googleUser) {
   // // The ID token you need to pass to your backend:
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
-  console.log(profile);
+  console.log(profile)
+  window.location.href = "/userpage";
+
   
   
 }
 //code for signing out from google api
 $("#logout").on("click", function(){
+  console.log("HEY")
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
