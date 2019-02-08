@@ -9,14 +9,21 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the users
-  app.get("/api/users", function(req, res) {
+
+  app.get("/api/posts", function(req, res) {
+    db.postItem.findAll({
+    }).then(function(dbPost) {
+         res.render("index", { data: dbPost });
+       });
+    })
+  // app.get("/api/users", function(req, res) {
     
-    db.User.findAll({
-      include: [db.Post,db.Offer]
-    }).then(function(dbUser) {
-      res.json(dbUser);
-    });
-  });
+  //   db.User.findAll({
+  //     include: [db.Post,db.Offer]
+  //   }).then(function(dbUser) {
+  //     res.json(dbUser);
+  //   });
+  // });
 
   app.get("/api/users/:id", function(req, res) {
     
