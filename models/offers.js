@@ -1,6 +1,6 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
-id: {
+    id: {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true
@@ -28,8 +28,6 @@ id: {
   });
 
   //commenting this out until we have more understanding of how we are routing/using the data
-
-
   // offers.associate = function (models) {
   //   models.user.hasMany(models.tradeOffer);
   // };

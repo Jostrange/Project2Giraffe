@@ -1,4 +1,4 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var postItem = sequelize.define("postItem", {
     id: {
       type: DataTypes.INTEGER,
@@ -21,7 +21,7 @@ module.exports = function (sequelize, DataTypes) {
       len: [1]
     }
   });
- //commenting this out until we have more understanding of how we are routing/using the data
+  //commenting this out until we have more understanding of how we are routing/using the data
 
   // postItem.associate = function (models) {
   //   models.postItem.belongsTo(models.user, {
