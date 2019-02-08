@@ -50,9 +50,12 @@
       <div class="navbar-item">
         <div id="wordsinnav">Post an item!</div>
         <div class="buttons">
-          <a id="signup" class="button is-primary modal-trigger" data-target="signup-modal">
+          {{!-- <a id="signup" class="button is-primary modal-trigger" data-target="signup-modal">
             <strong>Sign up</strong>
-          </a>
+          </a> --}}
+          {{!-- <div class="navbar-item"> --}}
+                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                {{!-- </div> --}}
           <a id="signin" class="button is-light modal-trigger" data-target="signin-modal">
             Log in
           </a>
