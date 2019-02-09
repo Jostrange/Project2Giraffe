@@ -1,10 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
   var postItem = sequelize.define("postItem", {
-    id: {
-      type: DataTypes.INTEGER,
-      autoIncrement: true,
-      primaryKey: true,
-    },
     zipcode: {
       type: DataTypes.INTEGER,
       allowNull: false,

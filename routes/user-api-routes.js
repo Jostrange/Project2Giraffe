@@ -27,7 +27,7 @@ module.exports = function (app) {
       },
       include: [db.Post, db.Offer]
     }).then(function (dbUser) {
-      res.json(dbuser);
+      res.json(dbUser);
     });
   });
 
@@ -36,8 +36,8 @@ module.exports = function (app) {
     db.user.findOrCreate({
       where: req.body
     })
-      .then(function (dbuser) {
-        res.json(dbuser);
+      .then(function (dbUser) {
+        res.json(dbUser);
       });
   });
 
@@ -46,8 +46,9 @@ module.exports = function (app) {
       where: {
         id: req.params.id
       }
+
     }).then(function (dbUser) {
-      res.json(dbuser);
+      res.json(dbUser);
     });
   });
 
