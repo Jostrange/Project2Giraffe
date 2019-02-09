@@ -9,23 +9,31 @@ var db = require("../models");
 
 module.exports = function(app) {
 
+
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
-
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
-    }
-
     db.postItem.findAll({
-      where: query,
-      include: [db.User]
     }).then(function(dbPost) {
-      res.json(dbPost);
-      // res.render("index", { data: dbPost });
-    });
+         res.render("index", { data: dbPost });
+       });
+    })
 
-  });
+  // app.get("/api/posts", function(req, res) {
+
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+
+  //   db.postItem.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbPost) {
+  //     res.json(dbPost);
+      // res.render("index", { data: dbPost });
+    // });
+
+  // });
 
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {

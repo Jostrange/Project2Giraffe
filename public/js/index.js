@@ -155,8 +155,8 @@ function onSignIn(googleUser) {
   //we can use what we need from this
   var userObject = {
     FullName:     profile.getName(),
-    FirstName:    profile.getGivenName(),
-    Surname:      profile.getFamilyName(),
+    // FirstName:    profile.getGivenName(),
+    // Surname:      profile.getFamilyName(),
     userImageURL: profile.getImageUrl(),
     email:        profile.getEmail()
   }
