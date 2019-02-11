@@ -66,10 +66,10 @@
         </div>
       </nav>
       
-      <!-- {{!-- FEED --}} -->
+      <!-- FEED -->
       <div class="container">
         <ul id="feedcontainer" class="collection">
-          <!-- {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}} -->
+          <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
           <li id="post" data-id="{{this.id}}" class="collection-item avatar">
       
             <span id="username" class="title">Username goes here</span>
@@ -80,20 +80,20 @@
         </ul>
       </div>
       
-      <!-- {{!-- MODAL FOR POSTING AN ITEM --}} -->
+      <!-- MODAL FOR POSTING AN ITEM -->
       <div id="post-modal" class="modal ">
         <div class="modal-content col s12">
           <img id="postmodal-logo" src="styles/images/logo.png">
           <div class="row">
                 <form action="#" class="col s12">
                   <div class="row">
-                    {{!-- <div class="input-field col s6">
-                      <input id="postusername" type="text" class="validate">
-                      <label for="postusername">Username</label>
-                    </div> --}}
-                    <div class="input-field col s12">
+                    <div class="input-field col s6">
                       <input id="postItemName" type="text" class="validate">
                       <label for="postItemName">Name of Item</label>
+                    </div>
+                      <div class="input-field col s6">
+                      <input id="zipCode" type="text" class="validate">
+                      <label for="zipCode">Zip Code</label>
                     </div>
                   </div>
           
@@ -103,7 +103,7 @@
                         <input type="file">
                       </div>
                       <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
+                        <input id="postImage" class="file-path validate" type="text">
                       </div>
                     </div>
           
@@ -117,36 +117,36 @@
                       <div style="color:navy; font-size:16px">Category: </div>
                       <br>
                         <label>
-                          <input class="with-gap" name="group1" type="radio" checked />
+                          <input class="with-gap" name="categoryType" type="radio" checked />
                           <span>Food</span>
                         </label>
                   
                         <label>
-                          <input class="with-gap" name="group1" type="radio" />
+                          <input class="with-gap" name="categoryType" type="radio" />
                           <span>Products</span>
                         </label>
                      
                         <label>
-                          <input class="with-gap" name="group1" type="radio"  />
+                          <input class="with-gap" name="categoryType" type="radio"  />
                           <span>Services</span>
                         </label>
                     
                         <label>
-                          <input class="with-gap"name="group1" type="radio" />
+                          <input class="with-gap"name="categoryType" type="radio" />
                           <span>Clothing</span>
                         </label>
                         <label>
-                          <input class="with-gap"name="group1" type="radio" />
+                          <input class="with-gap"name="categoryType" type="radio" />
                           <span>Beauty & Health</span>
                         </label>
                         <label>
-                          <input class="with-gap" name="group1" type="radio"  />
+                          <input class="with-gap" name="categoryType" type="radio"  />
                           <span>Other</span>
                         </label>
                      
                 </form>
               <div class="modal-footer">
-              <a id="submiPosttBtn" class="waves-effect waves-light btn">
+              <a id="submitPostBtn" class="waves-effect waves-light btn">
                 <i class="material-icons right">send</i>Post!</a>
               </div>
           </div>
@@ -158,7 +158,8 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<!-- <script src="/js/index.js"></script> -->
+<script type="text/javascript" src="/js/post.js"></script>
+{{!-- <script src="/js/index.js"></script> --}}
 
 <script type="text/javascript">
   $(document).ready(function () {
