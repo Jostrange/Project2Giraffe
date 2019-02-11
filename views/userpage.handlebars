@@ -56,8 +56,11 @@
       </div>
           <div class="navbar-end">
             <div class="navbar-item">
-              <div class="buttons">
-                <a id="logout" class="button is-light">
+              <div id="logoutBtn" class="buttons">
+                                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+                <a class="button is-light" id="logout" >Sign out</a>
+ 
                   Log out
                 </a>
               </div>
@@ -159,7 +162,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <!-- <script src="/js/index.js"></script> -->
-
+{{!-- <script src="../public/js/index.js"></script> --}}
 <script type="text/javascript">
   $(document).ready(function () {
 
@@ -168,6 +171,22 @@
       $("#post-modal").modal();
       $("#postDescription").characterCounter();
     });
+
+     $("#logoutBtn").on("click", function(){
+    
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+      alert("signed out");
+    });
+  }
+  signOut();
+    window.location.href = "/";
+
+  });
+ 
   });
 
 </script>
