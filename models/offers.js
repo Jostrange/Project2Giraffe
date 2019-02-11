@@ -2,8 +2,7 @@ module.exports = function(sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
     zipcode: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     },
     category: {
       type: DataTypes.TEXT,

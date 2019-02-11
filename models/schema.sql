@@ -21,11 +21,13 @@ USE Tradesies;
 -- SELECT * FROM offers ;
 
 
--- CREATE TABLE post(
--- post_Contact varchar(255),
--- post_category varchar(255),
--- postitem_description varchar(255),
--- post_photoURL varchar(255));
+-- CREATE TABLE postItems(
+-- itemName varchar(255),
+-- zipcode integer(11),
+-- image   blob,
+-- description varchar(255),
+-- category varchar(255));
+
 
 
 -- SELECT * FROM post;

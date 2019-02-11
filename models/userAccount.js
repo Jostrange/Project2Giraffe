@@ -11,8 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     }
   });
   //commenting this out until we have more understanding of how we are routing/using the data

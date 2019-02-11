@@ -13,8 +13,8 @@ module.exports = function(app) {
   // GET route for getting all of the posts
   app.get("/api/posts", function(req, res) {
     db.postItem.findAll({
-    }).then(function(dbPost) {
-         res.render("index", { data: dbPost });
+    }).then(function(postItem) {
+         res.render("index", { data: postItem});
        });
     })
 
@@ -38,32 +38,33 @@ module.exports = function(app) {
   // Get route for retrieving a single post
   app.get("/api/posts/:id", function(req, res) {
     
-    db.Post.findOne({
+    db.postItem.findOne({
       where: {
         id: req.params.id
       },
       include: [db.User]
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(postItem) {
+      res.json(postItem);
     });
 
   });
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
-    db.Post.create(req.body).then(function(dbPost) {
-      res.json(dbPost);
+    console.log(req.body);
+    db.postItem.create(req.body).then(function(postItem) {
+      res.json(postItem);
     });
   });
 
   // DELETE route for deleting posts
   app.delete("/api/posts/:id", function(req, res) {
-    db.Post.destroy({
+    db.postItem.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(postItem) {
+      res.json(postItem);
     });
   });
 
