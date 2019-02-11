@@ -1,16 +1,13 @@
-//code to post an item from the modal in userpage.handlebars
-
-
 $(document).ready(function() {
     var newPost = {
-        postItem: $("#postItemName").val().trim(),
-        zipcode: $("#zipCode").val().trim(),
+        itemName: $("#postItemName").val().trim(),
+        zipcode: $("#zipCode"),
         image: $("#postImage").val(),
-        postDescription: $("#postDescription").val().trim(),
-        category: $("input[name='categoryType']:checked").val(),
-    }
+        description: $("#postDescription").val().trim(),
+        category: $("input[name='group1']:checked").val()
+    };
 
-    $("#submitPostBtn").on("click", function() {
+    $("#submitPostBtn").on("click", function(){
         console.log(newPost);
     })
-});
+})
