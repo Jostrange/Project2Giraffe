@@ -10,13 +10,37 @@ var db = require("../models");
 module.exports = function(app) {
 
 
-  // GET route for getting all of the posts
+  // GET route for getting all the datas from both postItem & user table
   app.get("/api/posts", function(req, res) {
     db.postItem.findAll({
-    }).then(function(postItem) {
-         res.render("index", { data: postItem});
+      raw: true,
+      include: [{ 
+        model: db.user,
+        // where : { id : db.postItem.userId }
+      }]
+    }).then(function(dbPostUser) {
+      console.log(dbPostUser)
+        //  res.render("index", { data: dbPostUser});
+        res.json(dbPostUser)
        });
     })
+
+    // GET route for getting all the datas from both postItem & user table filtered with category.
+    app.get("/api/posts/:category", function(req, res) {
+      db.postItem.findAll({
+        where: {
+                category: req.params.category
+              },
+        raw: true,
+        include: [{ 
+          model: db.user
+        }]
+      }).then(function(dbPostUser) {
+        console.log(dbPostUser)
+          //  res.render("index", { data: dbPostUser});
+          res.json(dbPostUser)
+         });
+      })
 
   // app.get("/api/posts", function(req, res) {
 
@@ -36,24 +60,24 @@ module.exports = function(app) {
   // });
 
   // Get route for retrieving a single post
-  app.get("/api/posts/:id", function(req, res) {
+  // app.get("/api/posts/:id", function(req, res) {
     
-    db.postItem.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.User]
-    }).then(function(postItem) {
-      res.json(postItem);
-    });
+  //   db.postItem.findOne({
+  //     where: {
+  //       id: req.params.id
+  //     },
+  //     include: [db.User]
+  //   }).then(function(postItem) {
+  //     res.json(postItem);
+  //   });
 
-  });
+  // });
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
     console.log(req.body);
-    db.postItem.create(req.body).then(function(postItem) {
-      res.json(postItem);
+    db.postItem.create(req.body).then(function(dbPostItem) {
+      res.json(dbPostItem);
     });
   });
 

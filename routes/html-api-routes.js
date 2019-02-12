@@ -10,12 +10,13 @@ module.exports = function (app) {
 
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
-  app.get("/", function (req, res) {
-    db.postItem.findAll({
-    }).then(function (postItem) {
-      res.render("index", { data: postItem });
-    });
-  });
+  // app.get("/", function (req, res) {
+  //   db.postItem.findAll({
+  //   }).then(function (postItem) {
+  //     res.render("index", { data: postItem });
+  //   });
+  // });
+
 
   //user page code
   app.get("/userpage", function (req, res) {

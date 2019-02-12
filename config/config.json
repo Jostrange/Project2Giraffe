@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Googleit1232",
+    "password": "password",
     "database": "Tradesies",
     "host": "localhost",
     "dialect": "mysql"
