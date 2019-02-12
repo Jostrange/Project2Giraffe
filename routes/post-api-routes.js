@@ -11,7 +11,7 @@ module.exports = function(app) {
 
 
   // GET route for getting all the datas from both postItem & user table
-  app.get("/api/posts", function(req, res) {
+  app.get("/", function(req, res) {
     db.postItem.findAll({
       raw: true,
       include: [{ 

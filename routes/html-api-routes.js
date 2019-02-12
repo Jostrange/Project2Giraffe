@@ -19,15 +19,20 @@ module.exports = function (app) {
 
 
   //user page code
-  app.get("/userpage", function (req, res) {
+  // app.get("/userpage", function (req, res) {
     // res.sendFile(path.join(__dirname, "../public/home.html"));
-    res.render("userpage");
-  });
+    // res.render("userpage");
+  // });
 
   // Route to the logged in page
   // app.get("/loggedIn", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/loggeIn.html"));
   // });
+
+  // app.get("/", function(req, res) {
+  //   res.render('index');
+  // });
+
 
   // app.get("*", function(req, res) {
   //   res.sendFile(path.join(__dirname, "../public/home.html"));
