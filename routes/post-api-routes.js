@@ -20,8 +20,8 @@ module.exports = function(app) {
       }]
     }).then(function(dbPostUser) {
       console.log(dbPostUser)
-        //  res.render("index", { data: dbPostUser});
-        res.json(dbPostUser)
+        res.render("index", { data: dbPostUser});
+        // res.json(dbPostUser)
        });
     })
 
@@ -37,8 +37,8 @@ module.exports = function(app) {
         }]
       }).then(function(dbPostUser) {
         console.log(dbPostUser)
-          //  res.render("index", { data: dbPostUser});
-          res.json(dbPostUser)
+           res.render("index", { data: dbPostUser});
+          // res.json(dbPostUser)
          });
       })
 
