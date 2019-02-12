@@ -60,8 +60,6 @@
                                   <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 
                 <a class="button is-light" id="logout" >Sign out</a>
- 
-                  Log out
                 </a>
               </div>
             </div>
@@ -73,13 +71,7 @@
       <div class="container">
         <ul id="feedcontainer" class="collection">
           <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
-          <li id="post" data-id="{{this.id}}" class="collection-item avatar">
-      
-            <span id="username" class="title">Username goes here</span>
-            <p> Test</p>
-            <p> Test</p>
-            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-          </li>
+          
         </ul>
       </div>
       
@@ -120,30 +112,30 @@
                       <div style="color:navy; font-size:16px">Category: </div>
                       <br>
                         <label>
-                          <input class="with-gap" name="categoryType" type="radio" checked />
+                          <input class="with-gap" name="categoryType" type="radio" value="Food" checked />
                           <span>Food</span>
                         </label>
                   
                         <label>
-                          <input class="with-gap" name="categoryType" type="radio" />
+                          <input class="with-gap" name="categoryType" type="radio" value="Products" />
                           <span>Products</span>
                         </label>
                      
                         <label>
-                          <input class="with-gap" name="categoryType" type="radio"  />
+                          <input class="with-gap" name="categoryType" type="radio" value="Services" />
                           <span>Services</span>
                         </label>
                     
                         <label>
-                          <input class="with-gap"name="categoryType" type="radio" />
+                          <input class="with-gap"name="categoryType" type="radio" value="Clothing"/>
                           <span>Clothing</span>
                         </label>
                         <label>
-                          <input class="with-gap"name="categoryType" type="radio" />
+                          <input class="with-gap"name="categoryType" type="radio" value="Beauty & Health"/>
                           <span>Beauty & Health</span>
                         </label>
                         <label>
-                          <input class="with-gap" name="categoryType" type="radio"  />
+                          <input class="with-gap" name="categoryType" type="radio" value="Other" />
                           <span>Other</span>
                         </label>
                      

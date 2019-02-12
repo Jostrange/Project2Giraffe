@@ -8,7 +8,7 @@ USE Tradesies;
 -- zipcode_location INTEGER(11),
 -- );
 
-
+-- SELECT * FROM users;
 -- SELECT * FROM createAccount;
 
 
@@ -30,7 +30,7 @@ USE Tradesies;
 
 
 
--- SELECT * FROM post;
+-- SELECT * FROM postItems;
 
 -- DROP DATABASE IF EXISTS exampledb;
 -- CREATE DATABASE exampledb;
