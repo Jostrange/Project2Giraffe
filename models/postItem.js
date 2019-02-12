@@ -1,16 +1,20 @@
 module.exports = function(sequelize, DataTypes) {
   var postItem = sequelize.define("postItem", {
-    zipcode: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      len: [1]
-    },
-    descriptionOfItem: {
+    itemName: {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
     },
-    photo: {
+    zipcode: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    },
+    image: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      len: [1]
+    },
+    description: {
       type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
