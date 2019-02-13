@@ -26,14 +26,14 @@ module.exports = function(sequelize, DataTypes) {
   });
   //commenting this out until we have more understanding of how we are routing/using the data
 
-  // postItem.associate = function (models) {
-  //   models.postItem.belongsTo(models.user, {
-  //     onDelete: "CASCADE",
-  //     foreignKey: {
-  //       allowNull: false
-  //     }
-  //   });
-  // };
+  postItem.associate = function(models) {
+    postItem.belongsTo(models.user, {
+      // onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return postItem;
 };

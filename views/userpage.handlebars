@@ -57,7 +57,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div id="logoutBtn" class="buttons">
-                                  <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                                  {{!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> --}}
 
                 <a class="button is-light" id="logout" >Sign out</a>
                 </a>
@@ -69,11 +69,36 @@
       
       <!-- FEED -->
       <div class="container">
+  <br>
+  <ul id="feedcontainer" class="collection">
+    {{#each data}}
+    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+    <li id="post" data-id={{id}} class="collection-item avatar">
+      <span id ="post-itemname" class="title">{{itemName}}</span>
+      <br>
+      <img src= "https://via.placeholder.com/150">
+      <br>
+      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+      <br>
+      <span id ="post-category" class="title">Category: {{category}}</span>
+      <br>
+      <span id ="post-description" class="title">Description: {{description}}</span>
+      <br>
+      <span id ="post-description" class="title">Zipcode: {{zipcode}}</span>
+      <br>
+      {{!-- <p> Test</p> --}}
+      {{!-- <p> Test</p> --}}
+      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+    {{!-- </li> --}}
+    {{/each}}
+  </ul>
+</div>
+      {{!-- <div class="container">
         <ul id="feedcontainer" class="collection">
           <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
           
         </ul>
-      </div>
+      </div> --}}
       
       <!-- MODAL FOR POSTING AN ITEM -->
       <div id="post-modal" class="modal ">
