@@ -19,7 +19,7 @@ module.exports = function(app) {
         // where : { id : db.postItem.userId }
       }]
     }).then(function(dbPostUser) {
-      console.log(dbPostUser)
+      // console.log(dbPostUser)
         res.render("index", { data: dbPostUser});
         // res.json(dbPostUser)
        });
@@ -36,7 +36,7 @@ module.exports = function(app) {
           model: db.user
         }]
       }).then(function(dbPostUser) {
-        console.log(dbPostUser)
+        // console.log(dbPostUser)
            res.render("index", { data: dbPostUser});
           // res.json(dbPostUser)
          });

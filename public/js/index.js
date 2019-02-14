@@ -4,6 +4,9 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+let userId = JSON.parse(localStorage.getItem("userId"));
+    console.log(userId.userId)
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
@@ -152,6 +155,7 @@ function onSignIn(googleUser) {
   var id_token = googleUser.getAuthResponse().id_token;
   console.log("ID Token: " + id_token);
   console.log(profile)
+
   //we can use what we need from this
   var userObject = {
     FullName:     profile.getName(),
@@ -160,15 +164,16 @@ function onSignIn(googleUser) {
     userImageURL: profile.getImageUrl(),
     email:        profile.getEmail()
   }
-  API.saveUser(userObject)
-  window.location.href = "/userpage";
-
-  
+  API.saveUser(userObject).then(function(dbuser){
+    localStorage.setItem("userId",JSON.stringify({userId: dbuser[0].id}));
+    window.location.href = "/userpage";
+  })
   
 }
 //code for signing out from google api
 $("#logout").on("click", function(){
   console.log("HEY")
+  localStorage.clear();
 function signOut() {
   var auth2 = gapi.auth2.getAuthInstance();
   auth2.signOut().then(function () {
