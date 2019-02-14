@@ -3,7 +3,6 @@ $(document).ready(function () {
     let userId = JSON.parse(localStorage.getItem("userId"));
     console.log(userId.userId)
     $("#submitPostBtn").on("click", function () {
-        // console.log(newPost);
         var newPost = {
             userId: userId.userId,
             itemName: $("#postItemName").val().trim(),
@@ -21,7 +20,7 @@ $(document).ready(function () {
             method: "POST",
                data: JSON.stringify(newPost)
         }).then(function (postResponse) {
-            console.log(postResponse);
+            // console.log(postResponse);
             // var postcard = $("<div>");
             // postcard.addClass("postcard");
 

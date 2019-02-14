@@ -5,7 +5,6 @@ var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 let userId = JSON.parse(localStorage.getItem("userId"));
-    console.log(userId.userId)
 
 // The API object contains methods for each kind of request we'll make
 var API = {
