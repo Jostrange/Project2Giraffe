@@ -21,7 +21,7 @@ $(document).ready(function () {
             method: "POST",
                data: JSON.stringify(newPost)
         }).then(function (postResponse) {
-            // console.log(postResponse);
+            console.log(postResponse);
             // var postcard = $("<div>");
             // postcard.addClass("postcard");
 
