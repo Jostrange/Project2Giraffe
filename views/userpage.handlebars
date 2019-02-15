@@ -57,7 +57,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div id="logoutBtn" class="buttons">
-                                  {{!-- <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div> --}}
+                                  <div class="g-signin2" data-onsuccess="onSignIn" style="display:none" data-theme="dark"></div>
 
                 <a class="button is-light" id="logout" >Sign out</a>
                 </a>
@@ -76,7 +76,7 @@
     <li id="post" data-id={{id}} class="collection-item avatar">
       <span id ="post-itemname" class="title">{{itemName}}</span>
       <br>
-      <img src= "https://via.placeholder.com/150">
+      <img id='PostImage' src="{{image}}" alt="postImage">
       <br>
       <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
       <br>
@@ -116,8 +116,14 @@
                       <label for="zipCode">Zip Code</label>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="postItemurl" type="text" class="validate">
+                      <label for="postItemurl">Image url</label>
+                    </div>
+                    </div>
           
-                    <div class="file-field input-field">
+                    {{!-- <div class="file-field input-field">
                       <div  id="uploadImgBtn" class="btn">
                         <span>Upload an Image</span>
                         <input type="file">
@@ -125,7 +131,7 @@
                       <div class="file-path-wrapper">
                         <input id="postImage" class="file-path validate" type="text">
                       </div>
-                    </div>
+                    </div> --}}
           
                   <div class="row">
                         <div class="input-field col s12">
