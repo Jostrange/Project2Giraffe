@@ -1,9 +1,14 @@
 /* .list-group-item {
   line-height: 2.5;
 } */
+html { 
+overflow-y:scroll; 
+}
 
 body {
-margin: 0px;
+min-height: 100% !important;
+
+background-image: url(/styles/images/white-waves.png)
 }
 
 .navbar {
@@ -23,7 +28,7 @@ margin: 0px;
   font-size: 20px;
   font-weight: 400;
 }
-
+/* 
 #signup {
   background-color: navy;
   width: 110px;
@@ -32,11 +37,15 @@ margin: 0px;
 #signin {
   font-weight: 500;
   width: 110px;
-}
+} */
 
 #feedcontainer {
   margin: 5px auto;
   width: 85%;
+}
+
+.modal {
+  max-height: 80%;
 }
 
 #modal-logo {
@@ -73,18 +82,18 @@ margin: 0px;
   color: navy;
 }
 
-#signinSubmitBtn {
-  width: 50%;
+#submitOfferButton {
+  width: 40%;
   text-align: center;
   margin: auto;
   background-color: navy;
   font-size: 16px;
 }
 
-#signupmodal-logo {
-  width: 380px;
-  height: 80px;
-  margin: 10px auto 10px 100px;
+#trade-logo {
+  width: 300px;
+  height: 70px;
+  margin: 10px auto 10px 120px;
 }
 
 #signupSubmitBtn {
