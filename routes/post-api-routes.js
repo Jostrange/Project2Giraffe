@@ -98,12 +98,13 @@ module.exports = function(app) {
   });
 
   // DELETE route for deleting posts
-  app.delete("/api/posts/:id", function(req, res) {
+  app.delete("/api/yourPost/:id", function(req, res) {
     db.postItem.destroy({
       where: {
         id: req.params.id
       }
     }).then(function(postItem) {
+      // console.log(postItem);
       res.json(postItem);
     });
   });

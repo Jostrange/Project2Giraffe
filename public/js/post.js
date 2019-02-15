@@ -45,19 +45,21 @@ $(document).ready(function () {
             window.location.href = "/api/yourpost/"+userId.userId;
         })
     })
-    // $("#home").on("click", function () {
-    //     var newPost = {
-    //         id: userId.userId
-    //     }
-    //     console.log(newPost)
-    //     $.ajax({
-    //         contentType: "application/JSON",
-    //         url: "/api/yourpost",
-    //         method: "GET",
-    //         data: newPost
-    //     }).then(function (postResponse) {
-    //         window.location.href = "/userpage";
-    //     })
-    // });
+    $(document).on("click", "#deleteButton",function (e) {
+        e.preventDefault();
+        console.log($(this).attr("data-postID"))
+        // var newPost = {
+        //     id: $(this).attr("data-postID")
+        // }
+        // console.log(newPost)
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/api/yourPost/"+$(this).attr("data-postID"),
+            method: "DELETE",
+            // data: newPost
+        }).then(function (postResponse) {
+            window.location.href = "/api/yourpost/"+userId.userId;
+        })
+    });
 }
 )

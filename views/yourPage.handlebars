@@ -79,7 +79,7 @@
       <br>
       <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
-      <button id="deleteButton" class="button is-light modal-trigger" data-target="trade-modal">Delete Post?</button>
+      <button id="deleteButton" data-postID={{id}} class="button is-light modal-trigger">Delete Post?</button>
       {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
       <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button> --}}
       {{!-- <p> Test</p> --}}
@@ -182,7 +182,7 @@
 
 <div id="trade-modal" class="modal">
   <div class="modal-content col s12">
-    <img id="trade-logo" src="../styles/images/logo.png">
+    <img id="trade-logo" src="/styles/images/logo.png">
     <div class="row">
       <form class="col s12">
         <div class="row">
