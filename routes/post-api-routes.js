@@ -25,6 +25,22 @@ module.exports = function(app) {
        });
     })
 
+    //  get yourPost details
+    app.get("/api/yourpost/:id", function(req, res) {
+      console.log(req.params)
+      db.postItem.findAll({
+        raw: true,
+        where : { userId : req.params.id },
+        include: [{ 
+          model: db.user
+        }]
+      }).then(function(dbPostUser) {
+        console.log(dbPostUser)
+        res.render("userpage", { data: dbPostUser});
+          // res.json(dbPostUser)
+         });
+      })
+
     // GET route for getting all the datas from both postItem & user table filtered with category.
     app.get("/api/posts/:category", function(req, res) {
       db.postItem.findAll({
@@ -75,7 +91,7 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
-    console.log(req.body);
+    // console.log(req.body);
     db.postItem.create(req.body).then(function(dbPostItem) {
       res.json(dbPostItem);
     });

@@ -17,7 +17,7 @@ module.exports = function (app) {
         // where : { id : db.postItem.userId }
       }]
     }).then(function(dbPostUser) {
-      console.log(dbPostUser)
+      // console.log(dbPostUser)
         res.render("userpage", { data: dbPostUser});
         // res.json(dbPostUser)
        });
