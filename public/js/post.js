@@ -45,7 +45,7 @@ $(document).ready(function () {
             window.location.href = "/api/yourpost/"+userId.userId;
         })
     })
-    // $("#your-posts").on("click", function () {
+    // $("#home").on("click", function () {
     //     var newPost = {
     //         id: userId.userId
     //     }
