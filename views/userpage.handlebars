@@ -58,7 +58,6 @@
             <div class="navbar-item">
               <div id="logoutBtn" class="buttons">
                                   <div class="g-signin2 userpagegoogleapi" data-onsuccess="onSignIn" data-theme="dark"></div>
-
                 <a class="button is-light" id="logout" >Sign out</a>
                 </a>
               </div>
@@ -76,7 +75,7 @@
     <li id="post" data-id={{id}} class="collection-item avatar">
       <span id ="post-itemname" class="title">{{itemName}}</span>
       <br>
-      <img src= "https://via.placeholder.com/150">
+      <img id='PostImage' src="{{image}}" alt="postImage">
       <br>
       <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
       <br>
@@ -84,8 +83,11 @@
       <br>
       <span id ="post-description" class="title">Description: {{description}}</span>
       <br>
-      <span id ="post-description" class="title">Zipcode: {{zipcode}}</span>
+      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
+      <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
       {{!-- <p> Test</p> --}}
       {{!-- <p> Test</p> --}}
       {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
@@ -93,6 +95,8 @@
     {{/each}}
   </ul>
 </div>
+</div>
+
       {{!-- <div class="container">
         <ul id="feedcontainer" class="collection">
           <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
@@ -101,7 +105,7 @@
       </div> --}}
       
       <!-- MODAL FOR POSTING AN ITEM -->
-      <div id="post-modal" class="modal ">
+      <div id="post-modal" class="modal">
         <div class="modal-content col s12">
           <img id="postmodal-logo" src="styles/images/logo.png">
           <div class="row">
@@ -116,8 +120,14 @@
                       <label for="zipCode">Zip Code</label>
                     </div>
                   </div>
+                  <div class="row">
+                    <div class="input-field col s12">
+                      <input id="postItemurl" type="text" class="validate">
+                      <label for="postItemurl">Image url</label>
+                    </div>
+                    </div>
           
-                    <div class="file-field input-field">
+                    {{!-- <div class="file-field input-field">
                       <div  id="uploadImgBtn" class="btn">
                         <span>Upload an Image</span>
                         <input type="file">
@@ -125,7 +135,7 @@
                       <div class="file-path-wrapper">
                         <input id="postImage" class="file-path validate" type="text">
                       </div>
-                    </div>
+                    </div> --}}
           
                   <div class="row">
                         <div class="input-field col s12">
@@ -173,7 +183,44 @@
         </div>
       </div>
       
-    
+
+{{!-- MODAL FOR OFFER --}}
+
+<div id="trade-modal" class="modal">
+  <div class="modal-content col s12">
+    <img id="trade-logo" src="../styles/images/logo.png">
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="offerName" type="text" class="validate">
+            <label for="offerName">Full Name</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="offerContactInfo" type="text" class="validate">
+            <label for="offerContactInfo">Phone # or Email Address</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="offerItem" type="text" class="validate">
+            <label for="offerItem">Item up for trade</label>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
+              <label for="offerDescription">Brief Description of Item</label>
+            </div>
+          </div>
+          <div class="input-field col s6">
+            <input id="offerZipcode" type="text" class="validate">
+            <label for="offerZipcode">Zip Code</label>
+          </div>
+        </div>
+      </form>
+      <a id="submitOfferButton" class="waves-effect waves-light btn">
+        <i class="material-icons right">send</i>Trade!</a>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -191,6 +238,11 @@
       $("#postDescription").characterCounter();
     });
 
+ $("#tradeButton").on("click", function (event) {
+      event.preventDefault();
+      $('#trade-modal').modal();
+    });
+    
      $("#logoutBtn").on("click", function(){
        console.log("test")
     
