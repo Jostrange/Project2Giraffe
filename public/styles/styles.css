@@ -3,6 +3,7 @@
 } */
 html { 
 overflow-y:scroll; 
+height: 100%;
 }
 
 body {
@@ -40,6 +41,11 @@ background-image: url(/styles/images/white-waves.png)
 } */
 
 #feedcontainer {
+  margin: 5px auto;
+  width: 85%;
+}
+
+#feedcontaineroffers {
   margin: 5px auto;
   width: 85%;
 }
