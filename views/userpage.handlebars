@@ -88,9 +88,9 @@
           <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
           <br>
           <div id="allButtons">
-          <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
-          <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
-          <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+            <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+            <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+            <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
           </div>
           {{!-- <p> Test</p> --}}
           {{!-- <p> Test</p> --}}
@@ -189,66 +189,99 @@
   </div>
 
 
-  {{!-- MODAL FOR OFFER --}}
 
-  <div id="trade-modal" class="modal">
+  {{!-- REPORT MODAL --}}
+
+  <div id="report-modal" class="modal">
     <div class="modal-content col s12">
       <img id="trade-logo" src="/styles/images/logo.png">
+      <br>
+      <br>
+      <br>
       <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s6">
-              <input id="offerFullName" type="text" class="validate">
-              <label for="offerFullName">Full Name</label>
-            </div>
-            <div class="input-field col s6">
-              <input id="offerContactInfo" type="text" class="validate">
-              <label for="offerContactInfo">Phone # or Email Address</label>
-            </div>
-            <div class="input-field col s12">
-              <input id="offerItem" type="text" class="validate">
-              <label for="offerItem">Item up for trade</label>
-            </div>
-
-            <div class="input-field col s12">
-              <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
-              <label for="offerDescription">Brief Description of Item</label>
-            </div>
-
-            <div class="input-field col s6">
-              <input id="offerZipcode" type="text" class="validate">
-              <label for="offerZipcode">Zip Code</label>
-            </div>
-          </div>
-        </form>
-        <a id="submitOfferButton" class="waves-effect waves-light btn">
-          <i class="material-icons right">send</i>Trade!</a>
-      </div>
-    </div>
-  </div>
-
-
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script type="text/javascript" src="/js/post.js"></script>
-  <script type="text/javascript" src="/js/offers.js"></script>
-
-  <!-- <script src="/js/index.js"></script> -->
-  {{!-- AVAILABLE OFFERS MODAL --}}
-
-  <div id="offers-modal" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h3 id="headerOffers">OPEN OFFERS FOR THIS POST</h3>
-      <div id="feedcontaineroffers">
-      </div>
-      <div class="modal-footer">
+        <div id="reportselect" class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Choose an option</option>
+            <option value="1">Inappropriate Content.</option>
+            <option value="2">It's a scam!</option>
+            <option value="3">The user who posted this is being weird.</option>
+            <option value="4">It's a pyramid scheme.</option>
+            <option value="4">Other reasons.</option>
+          </select>
+          <label>Reason for reporting:</label>
+        </div>
+        <div class="input-field col s12">
+          <br>
+          <br>
+          <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
+          <label for="reportDescription">Tell Us Why</label>
+        </div>
+        <a id="submitReportButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Report!</a>
       </div>
     </div>
 
-    {{!-- REPORT MODAL --}}
 
-    {{!-- <div id="report-modal" class="modal">
+    {{!-- MODAL FOR OFFER --}}
+
+    <div id="trade-modal" class="modal">
+      <div class="modal-content col s12">
+        <img id="trade-logo" src="/styles/images/logo.png">
+        <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input id="offerFullName" type="text" class="validate">
+                <label for="offerFullName">Full Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="offerContactInfo" type="text" class="validate">
+                <label for="offerContactInfo">Phone # or Email Address</label>
+              </div>
+              <div class="input-field col s12">
+                <input id="offerItem" type="text" class="validate">
+                <label for="offerItem">Item up for trade</label>
+              </div>
+
+              <div class="input-field col s12">
+                <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
+                <label for="offerDescription">Brief Description of Item</label>
+              </div>
+
+              <div class="input-field col s6">
+                <input id="offerZipcode" type="text" class="validate">
+                <label for="offerZipcode">Zip Code</label>
+              </div>
+            </div>
+          </form>
+          <a id="submitOfferButton" class="waves-effect waves-light btn">
+            <i class="material-icons right">send</i>Trade!</a>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type="text/javascript" src="/js/post.js"></script>
+    <script type="text/javascript" src="/js/offers.js"></script>
+
+    <!-- <script src="/js/index.js"></script> -->
+    {{!-- AVAILABLE OFFERS MODAL --}}
+
+    <div id="offers-modal" class="modal bottom-sheet">
+      <div class="modal-content">
+        <h3 id="headerOffers">OPEN OFFERS FOR THIS POST</h3>
+        <div id="feedcontaineroffers">
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+
+      {{!-- REPORT MODAL --}}
+
+      {{!-- <div id="report-modal" class="modal">
       <div class="modal-content col s12">
         <img id="trade-logo" src="/styles/images/logo.png">
         <div class="row">
@@ -275,57 +308,62 @@
     </div> --}}
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script type="text/javascript" src="/js/post.js"></script>
-    <!-- <script src="/js/index.js"></script> -->
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+      <script type="text/javascript" src="/js/post.js"></script>
+      <!-- <script src="/js/index.js"></script> -->
 
 
-    <script type="text/javascript">
-      $(document).ready(function () {
+      <script type="text/javascript">
+        $(document).ready(function () {
 
-        $("#post-item").on("click", function (event) {
-          event.preventDefault();
-          $("#post-modal").modal();
-          $("#postDescription").characterCounter();
+          $("#post-item").on("click", function (event) {
+            event.preventDefault();
+            $("#post-modal").modal();
+            $("#postDescription").characterCounter();
+          });
+
+          $("#tradeButton").on("click", function (event) {
+            event.preventDefault();
+            $('#trade-modal').modal();
+          });
+
+          $("#offersButton").on("click", function () {
+            $("#offers-modal").modal();
+          })
+
+          $("#submitOfferButton").on("click", function () {
+            $("#trade-modal").modal('close');
+          })
+
+          $("#reportButton").on("click", function () {
+            console.log("hooooooo")
+            event.preventDefault();
+            $("#report-modal").modal();
+            $('select').formSelect();
+          });
+
+          $("#submitReportButton").on("click", function () {
+            console.log("hellooooo")
+            $("#report-modal").modal('close');
+          });
+
+
+          $("#logoutBtn").on("click", function () {
+            console.log("test")
+
+
+            function signOut() {
+              var auth2 = gapi.auth2.getAuthInstance();
+              auth2.signOut().then(function () {
+                console.log('User signed out.');
+                alert("signed out");
+              });
+            }
+            signOut();
+            window.location.href = "/";
+
+          });
         });
 
-        $("#tradeButton").on("click", function (event) {
-          event.preventDefault();
-          $('#trade-modal').modal();
-        });
-
-        $("#offersButton").on("click", function () {
-          $("#offers-modal").modal();
-        })
-
-        $("#submitOfferButton").on("click", function () {
-          $("#trade-modal").modal('close');
-        })
-
-        $("#reportButton").on("click", function () {
-          $("#report-modal").modal();
-        })
-
-        $("submitReportButton").on("click", function(){
-          $("#report-modal").modal('close');
-        })
-
-        $("#logoutBtn").on("click", function () {
-          console.log("test")
-
-
-          function signOut() {
-            var auth2 = gapi.auth2.getAuthInstance();
-            auth2.signOut().then(function () {
-              console.log('User signed out.');
-              alert("signed out");
-            });
-          }
-          signOut();
-          window.location.href = "/";
-
-        });
-      });
-
-    </script>
+      </script>

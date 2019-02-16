@@ -258,5 +258,9 @@ footer {
 #deleteButton:hover {
   background-color: red;
   color: white;
-  
+
+}
+
+#submitReportButton {
+  background-color: navy;
 }
