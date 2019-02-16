@@ -1,36 +1,37 @@
-<div class="container">
-  <div class="col-12">        
+<div class="container" >
+  <div class="col-12">
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-          <img id="logo" src="/styles/images/logo.png">
-      
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-          </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-        <div class="navbar-item">
-            <a href= "/userpage" id = "home" class="navbar-item">
+      <div class="navbar-brand">
+        <img id="logo" src="/styles/images/logo.png">
+
+        <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+          data-target="navbarBasicExample">
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <a href="/userpage" id="home" class="navbar-item">
               Home
             </a>
 
             <a id="post-item" class="navbar-item modal-trigger" data-target="post-modal">
-                Post an Item
-              </a>
+              Post an Item
+            </a>
 
-              <a id="your-posts" class="navbar-item">
-               Your Posts
-              </a>
+            <a id="your-posts" class="navbar-item">
+              Your Posts
+            </a>
 
-      
+
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 Sort by
               </a>
-      
+
               <div class="navbar-dropdown">
                 <a class="navbar-item">
                   Food
@@ -53,81 +54,82 @@
               </div>
             </div>
           </div>
-      </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div id="logoutBtn" class="buttons">
-                                  <div class="g-signin2 userpagegoogleapi" data-onsuccess="onSignIn" data-theme="dark"></div>
-                <a class="button is-light" id="logout" >Sign out</a>
-                </a>
-              </div>
+        </div>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div id="logoutBtn" class="buttons">
+              <div class="g-signin2 userpagegoogleapi" data-onsuccess="onSignIn" data-theme="dark"></div>
+              <a class="button is-light" id="logout">Sign out</a>
+              </a>
             </div>
           </div>
         </div>
-      </nav>
-      
-      <!-- FEED -->
-      <div class="container">
-  <br>
-  <ul id="feedcontainer" class="collection">
-    {{#each data}}
-    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
-    <li id="post" data-id={{id}} class="collection-item avatar">
-      <span id ="post-itemname" class="title">{{itemName}}</span>
-      <br>
-      <img id='PostImage' src="{{image}}" alt="postImage">
-      <br>
-      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
-      <br>
-      <span id ="post-category" class="title">Category: {{category}}</span>
-      <br>
-      <span id ="post-description" class="title">Description: {{description}}</span>
-      <br>
-      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
-      <br>
-      <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
-      <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
-      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
-      {{!-- <p> Test</p> --}}
-      {{!-- <p> Test</p> --}}
-      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-    {{!-- </li> --}}
-    {{/each}}
-  </ul>
-</div>
-</div>
+      </div>
+    </nav>
 
-      {{!-- <div class="container">
+    <!-- FEED -->
+    <div class="container">
+      <br>
+      <ul id="feedcontainer" class="collection">
+        {{#each data}}
+        {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+        <li id="post" data-id={{id}} class="collection-item avatar">
+          <span id="post-itemname" class="title">{{itemName}}</span>
+          <br>
+          <img id='PostImage' src="{{image}}" alt="postImage">
+          <br>
+          <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+          <br>
+          <span id="post-category" class="title">Category: {{category}}</span>
+          <br>
+          <span id="post-description" class="title">Description: {{description}}</span>
+          <br>
+          <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+          <br>
+          <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+          <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+          <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+          {{!-- <p> Test</p> --}}
+          {{!-- <p> Test</p> --}}
+          {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+          {{!-- </li> --}}
+          {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  {{!-- <div class="container">
         <ul id="feedcontainer" class="collection">
           <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
           
         </ul>
       </div> --}}
-      
-      <!-- MODAL FOR POSTING AN ITEM -->
-      <div id="post-modal" class="modal">
-        <div class="modal-content col s12">
-          <img id="postmodal-logo" src="styles/images/logo.png">
+
+  <!-- MODAL FOR POSTING AN ITEM -->
+
+  <div id="post-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="postmodal-logo" src="styles/images/logo.png">
+      <div class="row">
+        <form action="#" class="col s12">
           <div class="row">
-                <form action="#" class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <input id="postItemName" type="text" class="validate">
-                      <label for="postItemName">Name of Item</label>
-                    </div>
-                      <div class="input-field col s6">
-                      <input id="zipCode" type="text" class="validate">
-                      <label for="zipCode">Zip Code</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="postItemurl" type="text" class="validate">
-                      <label for="postItemurl">Image url</label>
-                    </div>
-                    </div>
-          
-                    {{!-- <div class="file-field input-field">
+            <div class="input-field col s6">
+              <input id="postItemName" type="text" class="validate">
+              <label for="postItemName">Name of Item</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="zipCode" type="text" class="validate">
+              <label for="zipCode">Zip Code</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="postItemurl" type="text" class="validate">
+              <label for="postItemurl">Image url</label>
+            </div>
+          </div>
+
+          {{!-- <div class="file-field input-field">
                       <div  id="uploadImgBtn" class="btn">
                         <span>Upload an Image</span>
                         <input type="file">
@@ -136,129 +138,163 @@
                         <input id="postImage" class="file-path validate" type="text">
                       </div>
                     </div> --}}
-          
-                  <div class="row">
-                        <div class="input-field col s12">
-                          <textarea id="postDescription" class="materialize-textarea" data-length="250"></textarea>
-                          <label for="postDescription">Brief Description of Item</label>
-                        </div>
-                      </div>
 
-                      <div style="color:navy; font-size:16px">Category: </div>
-                      <br>
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Food" checked />
-                          <span>Food</span>
-                        </label>
-                  
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Products" />
-                          <span>Products</span>
-                        </label>
-                     
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Services" />
-                          <span>Services</span>
-                        </label>
-                    
-                        <label>
-                          <input class="with-gap"name="categoryType" type="radio" value="Clothing"/>
-                          <span>Clothing</span>
-                        </label>
-                        <label>
-                          <input class="with-gap"name="categoryType" type="radio" value="Beauty & Health"/>
-                          <span>Beauty & Health</span>
-                        </label>
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Other" />
-                          <span>Other</span>
-                        </label>
-                     
-                </form>
-              <div class="modal-footer">
-              <a id="submitPostBtn" class="waves-effect waves-light btn">
-                <i class="material-icons right">send</i>Post!</a>
-              </div>
-          </div>
-        </div>
-      </div>
-      
-
-{{!-- MODAL FOR OFFER --}}
-
-<div id="trade-modal" class="modal">
-  <div class="modal-content col s12">
-    <img id="trade-logo" src="/styles/images/logo.png">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="offerName" type="text" class="validate">
-            <label for="offerName">Full Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input id="offerContactInfo" type="text" class="validate">
-            <label for="offerContactInfo">Phone # or Email Address</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="offerItem" type="text" class="validate">
-            <label for="offerItem">Item up for trade</label>
-          </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
-              <label for="offerDescription">Brief Description of Item</label>
+              <textarea id="postDescription" class="materialize-textarea" data-length="250"></textarea>
+              <label for="postDescription">Brief Description of Item</label>
             </div>
           </div>
-          <div class="input-field col s6">
-            <input id="offerZipcode" type="text" class="validate">
-            <label for="offerZipcode">Zip Code</label>
-          </div>
+
+          <div style="color:navy; font-size:16px">Category: </div>
+          <br>
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Food" checked />
+            <span>Food</span>
+          </label>
+
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Products" />
+            <span>Products</span>
+          </label>
+
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Services" />
+            <span>Services</span>
+          </label>
+
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Clothing" />
+            <span>Clothing</span>
+          </label>
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Beauty & Health" />
+            <span>Beauty & Health</span>
+          </label>
+          <label>
+            <input class="with-gap" name="categoryType" type="radio" value="Other" />
+            <span>Other</span>
+          </label>
+
+        </form>
+        <div class="modal-footer">
+          <a id="submitPostBtn" class="waves-effect waves-light btn">
+            <i class="material-icons right">send</i>Post!</a>
         </div>
-      </form>
-      <a id="submitOfferButton" class="waves-effect waves-light btn">
-        <i class="material-icons right">send</i>Trade!</a>
+      </div>
     </div>
   </div>
-</div>
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script type="text/javascript" src="/js/post.js"></script>
-<!-- <script src="/js/index.js"></script> -->
+  {{!-- MODAL FOR OFFER --}}
+
+  <div id="trade-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="trade-logo" src="/styles/images/logo.png">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="offerFullName" type="text" class="validate">
+              <label for="offerFullName">Full Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="offerContactInfo" type="text" class="validate">
+              <label for="offerContactInfo">Phone # or Email Address</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="offerItem" type="text" class="validate">
+              <label for="offerItem">Item up for trade</label>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
+                <label for="offerDescription">Brief Description of Item</label>
+              </div>
+            </div>
+            <div class="input-field col s6">
+              <input id="offerZipcode" type="text" class="validate">
+              <label for="offerZipcode">Zip Code</label>
+            </div>
+          </div>
+        </form>
+        <a id="submitOfferButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Trade!</a>
+      </div>
+    </div>
+  </div>
 
 
-<script type="text/javascript">
-  $(document).ready(function () {
+  {{!-- AVAILABLE OFFERS MODAL --}}
 
-    $("#post-item").on("click", function (event) {
-      event.preventDefault();
-      $("#post-modal").modal();
-      $("#postDescription").characterCounter();
+  <div id="offers-modal" class="modal bottom-sheet">
+    <div class="modal-content">
+      <h3>Open offers for this post</h3>
+      <ul class="openOffers">
+        {{#each data}}
+        <li id="eachOffer">
+          <span id="modalOfferName" class="title">Offered By: {{""}}</span>
+          <br>
+          <span id="modalOfferContactInfo" class="title">Contact Info: {{""}}</span>
+          <br>
+          <span id="modalOfferItem" class="title">Item: {{""}}</span>
+          <br>
+          <span id="modalOfferDescription" class="title">Description: {{""}}</span>
+          <br>
+          <span id="modalOfferZipcode" class="title">Zipcode: {{""}}</span>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script type="text/javascript" src="/js/post.js"></script>
+  <!-- <script src="/js/index.js"></script> -->
+
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $("#post-item").on("click", function (event) {
+        event.preventDefault();
+        $("#post-modal").modal();
+        $("#postDescription").characterCounter();
+      });
+
+      $("#tradeButton").on("click", function (event) {
+        event.preventDefault();
+        $('#trade-modal').modal();
+      });
+
+      $("#offersButton").on("click", function () {
+        $("#offers-modal").modal();
+      })
+
+      $("#submitOfferButton").on("click", function () {
+        $("#trade-modal").modal('close');
+      })
+
+      $("#logoutBtn").on("click", function () {
+        console.log("test")
+
+
+        function signOut() {
+          var auth2 = gapi.auth2.getAuthInstance();
+          auth2.signOut().then(function () {
+            console.log('User signed out.');
+            alert("signed out");
+          });
+        }
+        signOut();
+        window.location.href = "/";
+
+      });
+
     });
 
- $("#tradeButton").on("click", function (event) {
-      event.preventDefault();
-      $('#trade-modal').modal();
-    });
-    
-     $("#logoutBtn").on("click", function(){
-       console.log("test")
-    
-
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-      alert("signed out");
-    });
-  }
-  signOut();
-    window.location.href = "/";
-
-  });
- 
-  });
-
-</script>
+  </script>
