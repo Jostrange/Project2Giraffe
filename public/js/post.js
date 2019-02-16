@@ -34,5 +34,32 @@ $(document).ready(function () {
             window.location.href = "/userpage";
         })
     })
+    $("#your-posts").on("click", function () {
+    
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/api/yourpost/"+ userId.userId,
+            type: "GET",
+        }).then(function (postResponse) {
+            console.log(postResponse);
+            window.location.href = "/api/yourpost/"+userId.userId;
+        })
+    })
+    $(document).on("click", "#deleteButton",function (e) {
+        e.preventDefault();
+        console.log($(this).attr("data-postID"))
+        // var newPost = {
+        //     id: $(this).attr("data-postID")
+        // }
+        // console.log(newPost)
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/api/yourPost/"+$(this).attr("data-postID"),
+            method: "DELETE",
+            // data: newPost
+        }).then(function (postResponse) {
+            window.location.href = "/api/yourpost/"+userId.userId;
+        })
+    });
 }
 )
