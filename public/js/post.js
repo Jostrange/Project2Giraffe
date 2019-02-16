@@ -34,6 +34,8 @@ $(document).ready(function () {
             window.location.href = "/userpage";
         })
     })
+
+    //js for rendering posted item data related to the user
     $("#your-posts").on("click", function () {
     
         $.ajax({

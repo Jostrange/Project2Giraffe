@@ -72,7 +72,7 @@
 
 
 {{!-- FEED --}}
-<div class="container">
+<div class="container" background="/styles/images/white-waves.png">
   <br>
   <ul id="feedcontainer" class="collection">
     {{#each data}}
@@ -139,31 +139,28 @@
   </div>
 </div>
 
-{{!-- MODALFOR SIGN IN --}}
-
-{{!-- <div id="signin-modal" class="modal">
-  <div class="modal-content col s12">
-    <img id="modal-logo" src="../styles/images/logo.png">
-
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="enterUsername" type="text" class="validate">
-            <label for="enterUsername">Username</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="enterPassword" type="text" class="validate">
-            <label for="enterPassword">Password</label>
-          </div>
-        </div>
-        </form>
-        <a id="signinSubmitBtn" class="waves-effect waves-light btn">
-          <i class="material-icons right">send</i>Sign In</a>
-    </div>
+<div id="offers-modal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h3>Open offers for this post</h3>
+    {{!-- <ul class="openOffers">
+      {{#each data}}
+      <li id="eachOffer">
+        <span id="modalOfferName" class="title">Offered By: {{""}}</span>
+        <br>
+        <span id="modalOfferContactInfo" class="title">Contact Info: {{""}}</span>
+        <br>
+        <span id="modalOfferItem" class="title">Item: {{""}}</span>
+        <br>
+        <span id="modalOfferDescription" class="title">Description: {{""}}</span>
+        <br>
+        <span id="modalOfferZipcode" class="title">Zipcode: {{""}}</span>
+      </li>
+      {{/each}}
+    </ul> --}}
   </div>
-</div> --}}
-
+  <div class="modal-footer">
+  </div>
+</div>
 
 
 
@@ -185,6 +182,14 @@
       $('#signin-modal').modal();
     });
   });
+
+  $("#offersButton").on("click", function () {
+    $("#offers-modal").modal();
+  })
+
+  $("#submitOfferButton").on("click", function () {
+    $("#trade-modal").modal('close');
+  })
 
   $("#logoutBtn").on("click", function () {
 
