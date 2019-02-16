@@ -130,3 +130,7 @@ text-align: center;
 #submitPostBtn {
   background-color: navy;
 }
+
+.userpagegoogleapi{
+  display: none;
+}

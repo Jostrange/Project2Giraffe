@@ -57,8 +57,7 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div id="logoutBtn" class="buttons">
-                                  <div class="g-signin2" data-onsuccess="onSignIn" style="display:none" data-theme="dark"></div>
-
+                                  <div class="g-signin2 userpagegoogleapi" data-onsuccess="onSignIn" data-theme="dark"></div>
                 <a class="button is-light" id="logout" >Sign out</a>
                 </a>
               </div>
@@ -245,6 +244,7 @@
     });
     
      $("#logoutBtn").on("click", function(){
+       console.log("test")
     
 
   function signOut() {
