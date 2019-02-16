@@ -1,4 +1,4 @@
-// Get references to page elements
+Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
@@ -94,8 +94,8 @@ var handleFormSubmit = function(event) {
   $exampleText.val("");
   $exampleDescription.val("");
 };
-//Here is code that does similarly to above but for tradesies user posts
-//This function will  be called by a click
+// Here is code that does similarly to above but for tradesies user posts
+// This function will  be called by a click
 var postSubmit = function(event) {
   event.preventDefault;
   //I'm making an object based off the post form info.
@@ -168,7 +168,7 @@ function onSignIn(googleUser) {
     window.location.href = "/userpage";
   })
   
-}
+// }
 //code for signing out from google api
 $("#logout").on("click", function(){
   console.log("HEY")

@@ -91,7 +91,7 @@ module.exports = function(app) {
 
   // POST route for saving a new post
   app.post("/api/posts", function(req, res) {
-    // console.log(req.body);
+    console.log("hello from API");
     db.postItem.create(req.body).then(function(dbPostItem) {
       res.json(dbPostItem);
     });
