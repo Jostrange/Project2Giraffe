@@ -1,29 +1,35 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
-    zipcode: {
-      type: DataTypes.INTEGER,
+    item_name: {
+      type: DataTypes.TEXT,
       allowNull: false
     },
-    category: {
-      type: DataTypes.TEXT,
+    item_zip: {
+      type: DataTypes.INTEGER,
       allowNull: false,
       len: [1]
     },
-    descriptionOfItem: {
+    item_description: {
       type: DataTypes.TEXT,
-      allowNull: false,
-      len: [1]
+      allowNull: false
     },
-    photoURL: {
-      type: DataTypes.BLOB,
-      allowNull: false,
-      len: [1]
+    full_name: {
+      type: DataTypes.TEXT,
+      allowNull: false
+    },
+    contact_info: {
+      type: DataTypes.TEXT,
+      allowNull: false
     }
   });
 
   //commenting this out until we have more understanding of how we are routing/using the data
-  // offers.associate = function (models) {
-  //   models.user.hasMany(models.tradeOffer);
-  // };
+
+  offers.associate = function (models) {
+    offers.hasMany(models.postItem, {
+      // foreignKey: "user_id",
+      onDelete: "cascade"
+    });
+  };
   return offers;
 };
