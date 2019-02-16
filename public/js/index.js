@@ -1,4 +1,4 @@
-// Get references to page elements
+Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
@@ -7,70 +7,70 @@ var $exampleList = $("#example-list");
 let userId = JSON.parse(localStorage.getItem("userId"));
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  },
+// var API = {
+//   saveExample: function(example) {
+//     return $.ajax({
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       type: "POST",
+//       url: "api/examples",
+//       data: JSON.stringify(example)
+//     });
+//   },
+//   getExamples: function() {
+//     return $.ajax({
+//       url: "api/examples",
+//       type: "GET"
+//     });
+//   },
+//   deleteExample: function(id) {
+//     return $.ajax({
+//       url: "api/examples/" + id,
+//       type: "DELETE"
+//     });
+//   },
 
-  saveUser: function(example){
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/users",
-      data: JSON.stringify(example)
-    })
-  }
-};
+//   saveUser: function(example){
+//     return $.ajax({
+//       headers: {
+//         "Content-Type": "application/json"
+//       },
+//       type: "POST",
+//       url: "api/users",
+//       data: JSON.stringify(example)
+//     })
+//   }
+// };
 
 // refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
+// var refreshExamples = function() {
+//   API.getExamples().then(function(data) {
+//     var $examples = data.map(function(example) {
+//       var $a = $("<a>")
+//         .text(example.text)
+//         .attr("href", "/example/" + example.id);
 
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
+//       var $li = $("<li>")
+//         .attr({
+//           class: "list-group-item",
+//           "data-id": example.id
+//         })
+//         .append($a);
 
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
+//       var $button = $("<button>")
+//         .addClass("btn btn-danger float-right delete")
+//         .text("ｘ");
 
-      $li.append($button);
+//       $li.append($button);
 
-      return $li;
-    });
+//       return $li;
+//     });
 
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
-};
+//     $exampleList.empty();
+//     $exampleList.append($examples);
+//   });
+// };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
@@ -94,30 +94,30 @@ var handleFormSubmit = function(event) {
   $exampleText.val("");
   $exampleDescription.val("");
 };
-//Here is code that does similarly to above but for tradesies user posts
-//This function will  be called by a click
-var postSubmit = function(event) {
-  event.preventDefault;
-  //I'm making an object based off the post form info.
-  var newPost = {
-    poster:    "user1",
-    title:     "coffee beans",
-    body:      "Hey! I'm a coffee worker and I have so many free beans and im going to die of starvation please does anybody have fooodddd we can trade.",
-    image:     "image.jpg",
-    category:  "goods",
-    location:  "seattle",
-    zip:       "98102"
-  };
-  var newPost = {
-    poster: $("#postusername").val().trim(),
-    title: $("postItemName").val().trim(),
-    body: $("#postDescription").val().trim(),
-    //need more code for image upload
-    image: $("postPhoto").val(),
-    category: $("input[name='group1']:checked").val(),
-    //Waiting on location input
-    location: $("post-location").val().trim()
-  };
+// Here is code that does similarly to above but for tradesies user posts
+// This function will  be called by a click
+// var postSubmit = function(event) {
+//   event.preventDefault;
+//   //I'm making an object based off the post form info.
+//   var newPost = {
+//     poster:    "user1",
+//     title:     "coffee beans",
+//     body:      "Hey! I'm a coffee worker and I have so many free beans and im going to die of starvation please does anybody have fooodddd we can trade.",
+//     image:     "image.jpg",
+//     category:  "goods",
+//     location:  "seattle",
+//     zip:       "98102"
+//   };
+//   var newPost = {
+//     poster: $("#postusername").val().trim(),
+//     title: $("postItemName").val().trim(),
+//     body: $("#postDescription").val().trim(),
+//     //need more code for image upload
+//     image: $("postPhoto").val(),
+//     category: $("input[name='group1']:checked").val(),
+//     //Waiting on location input
+//     location: $("post-location").val().trim()
+//   };
   
 
   //Recycles template function for saving example
@@ -168,7 +168,7 @@ function onSignIn(googleUser) {
     window.location.href = "/userpage";
   })
   
-}
+// }
 //code for signing out from google api
 $("#logout").on("click", function(){
   console.log("HEY")
@@ -183,6 +183,6 @@ function signOut() {
 });
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$("submitBtn").on("click", postSubmit);
+// $submitBtn.on("click", handleFormSubmit);
+// $("submitBtn").on("click", postSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);

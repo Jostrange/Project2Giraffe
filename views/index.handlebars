@@ -102,7 +102,7 @@
 </div>
 
 {{!-- REPORT MODAL --}}
-
+<div class="container">
   <div id="report-modal" class="modal">
     <div class="modal-content col s12">
       <img id="trade-logo" src="/styles/images/logo.png">
@@ -121,122 +121,124 @@
           </select>
           <label>Reason for reporting:</label>
         </div>
-      <div class="input-field col s12">
-        <br>
-        <br>
-        <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
-        <label for="reportDescription">Tell Us Why</label>
+        <div class="input-field col s12">
+          <br>
+          <br>
+          <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
+          <label for="reportDescription">Tell Us Why</label>
+        </div>
+        <a id="submitReportButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Report!</a>
       </div>
-      <a id="submitReportButton" class="waves-effect waves-light btn">
-        <i class="material-icons right">send</i>Report!</a>
     </div>
   </div>
+  {{!-- MODAL FOR OFFER --}}
 
-{{!-- MODAL FOR OFFER --}}
+  <div id="trade-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="trade-logo" src="../styles/images/logo.png">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="offerFullName" type="text" class="validate">
+              <label for="offerFullName">Full Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="offerContactInfo" type="text" class="validate">
+              <label for="offerContactInfo">Phone # or Email Address</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="offerItem" type="text" class="validate">
+              <label for="offerItem">Item up for trade</label>
+            </div>
 
-<div id="trade-modal" class="modal">
-  <div class="modal-content col s12">
-    <img id="trade-logo" src="../styles/images/logo.png">
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s6">
-            <input id="offerFullName" type="text" class="validate">
-            <label for="offerFullName">Full Name</label>
-          </div>
-          <div class="input-field col s6">
-            <input id="offerContactInfo" type="text" class="validate">
-            <label for="offerContactInfo">Phone # or Email Address</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="offerItem" type="text" class="validate">
-            <label for="offerItem">Item up for trade</label>
-          </div>
+            <div class="input-field col s12">
+              <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
+              <label for="offerDescription">Brief Description of Item</label>
+            </div>
 
-          <div class="input-field col s12">
-            <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
-            <label for="offerDescription">Brief Description of Item</label>
+            <div class="input-field col s6">
+              <input id="offerZipcode" type="text" class="validate">
+              <label for="offerZipcode">Zip Code</label>
+            </div>
           </div>
-
-          <div class="input-field col s6">
-            <input id="offerZipcode" type="text" class="validate">
-            <label for="offerZipcode">Zip Code</label>
-          </div>
-        </div>
-      </form>
-      <a id="submitOfferButton" class="waves-effect waves-light btn">
-        <i class="material-icons right">send</i>Trade!</a>
+        </form>
+        <a id="submitOfferButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Trade!</a>
+      </div>
     </div>
   </div>
 </div>
 
+
 {{!-- OPEN OFFERS MODAL --}}
- <div id="offers-modal" class="modal bottom-sheet">
-    <div class="modal-content">
-      <h3 id="headerOffers">OPEN OFFERS FOR THIS POST</h3>
-      <div id="feedcontaineroffers">
-      </div>
-      <div class="modal-footer">
-      </div>
+<div id="offers-modal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h3 id="headerOffers">OPEN OFFERS FOR THIS POST</h3>
+    <div id="feedcontaineroffers">
     </div>
+    <div class="modal-footer">
+    </div>
+  </div>
 
 
-  
 
 
 
 
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/js/index.js"></script>
-<script type="text/javascript" src="/js/offers.js"></script>
 
-<script type="text/javascript">
-  $(document).ready(function () {
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/offers.js"></script>
 
-    $("#tradeButton").on("click", function (event) {
-      event.preventDefault();
-      $('#trade-modal').modal();
-    });
+  <script type="text/javascript">
+    $(document).ready(function () {
 
-    $("#signin").on("click", function (event) {
-      event.preventDefault();
-      $('#signin-modal').modal();
-    });
-  });
-
-  $("#offersButton").on("click", function () {
-    $("#offers-modal").modal();
-  })
-
-  $("#submitOfferButton").on("click", function () {
-    $("#trade-modal").modal('close');
-  })
-
-  $("#reportButton").on("click", function () {
-    console.log("hooooooo")
-    event.preventDefault();
-    $("#report-modal").modal();
-    $('select').formSelect();
-  });
-
-  $("#submitReportButton").on("click", function () {
-    console.log("hellooooo")
-    $("#report-modal").modal('close');
-  });
-
-
-  $("#logoutBtn").on("click", function () {
-
-
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-        alert("signed out");
+      $("#tradeButton").on("click", function (event) {
+        event.preventDefault();
+        $('#trade-modal').modal();
       });
-    }
-    signOut();
-  });
-</script>
+
+      $("#signin").on("click", function (event) {
+        event.preventDefault();
+        $('#signin-modal').modal();
+      });
+    });
+
+    $("#offersButton").on("click", function () {
+      $("#offers-modal").modal();
+    })
+
+    $("#submitOfferButton").on("click", function () {
+      $("#trade-modal").modal('close');
+    })
+
+    $("#reportButton").on("click", function () {
+      console.log("hooooooo")
+      event.preventDefault();
+      $("#report-modal").modal();
+      $('select').formSelect();
+    });
+
+    $("#submitReportButton").on("click", function () {
+      console.log("hellooooo")
+      $("#report-modal").modal('close');
+    });
+
+
+    $("#logoutBtn").on("click", function () {
+
+
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          alert("signed out");
+        });
+      }
+      signOut();
+    });
+  </script>
