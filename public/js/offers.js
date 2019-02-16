@@ -7,7 +7,7 @@ $(document).ready(function () {
             offerId: $("#offerId"),
             offerItemName: $("#offerItem").val().trim(),
             offerItemZip: $("#offerZipcode").val(),
-            offerFullName: $("#offerName").val(),
+            offerFullName: $("#offerFullName").val(),
             offerItemDescription: $("#offerDescription").val().trim(),
             offerContactInfo: $("#offerContactInfo").val()
             // created_at: moment().format("MM-DD-YYYY HH:mm:ss")
@@ -24,14 +24,14 @@ $(document).ready(function () {
             var offercard = $("<div>");
             offercard.addClass("offercard");
 
-            offercard.append("<p id='offerItem'>" + offerResponse.offerItemName +"</p>");
-            offercard.append("<p id='offerDescription'>" + offerResponse.offerItemDescription + "</p>");
-            offercard.append("<p id='offerName'>" + offerResponse.offerFullName + "</p>");
-            offercard.append("<p id='offerZipcode'>" + offerResponse.offerItemZip + "</p>");
-            offercard.append("<p id='offerContactInfo'>" + offerResponse.offerContactInfo + "</p>");
+            offercard.append("<p id='offerItem'>Item: " + offerResponse.offerItemName +"</p>");
+            offercard.append("<p id='offerDescription'>Description: " + offerResponse.offerItemDescription + "</p>");
+            offercard.append("<p id='offerName'>Offered by: " + offerResponse.offerFullName + "</p>");
+            offercard.append("<p id='offerZipcode'>Zipcode: " + offerResponse.offerItemZip + "</p>");
+            offercard.append("<p id='offerContactInfo'>How to contact me: " + offerResponse.offerContactInfo + "</p>");
 
             $("#feedcontaineroffers").prepend(offercard);
-            
+          
            
         })
     })

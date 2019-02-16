@@ -25,9 +25,11 @@ background-image: url(/styles/images/white-waves.png)
 }
 
 #wordsinnav {
+  padding-top: 5px;
   margin-right: 10px;
-  font-size: 20px;
+  font-size: 12px;
   font-weight: 400;
+  color: navy;
 }
 /* 
 #signup {
@@ -42,7 +44,7 @@ background-image: url(/styles/images/white-waves.png)
 
 #feedcontainer {
   margin: 5px auto;
-  width: 85%;
+  width: 80%;
 }
 
 #feedcontaineroffers {
@@ -146,7 +148,102 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 20px;
   background-color: navy;
   color: white;
   text-align: center;
+}
+
+#post {
+  border: lightgray;
+  border-style: double;
+}
+
+#post-itemname {
+  font-size: 30px;
+  border-bottom: 2px solid darkgray;
+}
+
+#PostImage{
+  margin: 20px auto;
+  text-align: center;
+  max-height: 200px;
+  max-width: 300px;
+}
+
+#postusername {
+  margin: 10px auto;
+  font-size: 20px;
+  font-weight: 500;
+  color: navy;
+  border-bottom: dashed lightgray 2px;
+}
+
+#post-category {
+  font-weight: 450;
+}
+
+#post-description{
+  font-weight: 400;
+}
+
+#post-zipcode {
+  font-weight: 350;
+}
+
+#tradeButton {
+  width: 120px;
+  text-align: center;
+  margin: 10px 30px 10px 0;
+  background-color: navy;
+  color: white;
+}
+
+#tradeButton:hover {
+  background-color: white;
+  border: 2px solid navy;
+  color: navy;
+}
+
+#reportButton {
+  float: right;
+  width: 120px;
+  margin: 10px 0px 10px 10px;
+  background-color: white;
+  border: 2px solid red;
+  color: red;
+}
+
+#reportButton:hover {
+  background-color: red;
+  color: white;
+}
+
+#offersButton {
+  float: right;
+  width: 120px;
+  margin: 10px;
+  color: navy;
+}
+
+#offersButton:hover {
+  color:white;
+  background-color: navy;
+
+}
+
+#offerItem {
+
+}
+
+#headerOffers {
+  text-align: center;
+  font-size: 25px;
+  border-bottom: solid 2px gray;
+}
+
+.offercard {
+  border: lightgray;
+  border-style: double;
+  font-size: 16px;
 }
