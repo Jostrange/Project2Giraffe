@@ -38,9 +38,12 @@ module.exports = function(app) {
 
   });
 
+  
+
   // POST route for saving a new offer
   app.post("/api/offers", function(req, res) {
-    db.offers.create(req.body).then(function(dbOffer) {
+    console.log(res.body)
+    db.offers.create(req.body).then(function(offers) {
       res.json(offers);
     });
   });

@@ -1,23 +1,23 @@
 module.exports = function (sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
-    item_name: {
+    offerItemName: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    item_zip: {
+    offerItemZip: {
       type: DataTypes.INTEGER,
       allowNull: false,
       len: [1]
     },
-    item_description: {
+    offerItemDescription: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    full_name: {
+    offerFullName: {
       type: DataTypes.TEXT,
       allowNull: false
     },
-    contact_info: {
+    offerContactInfo: {
       type: DataTypes.TEXT,
       allowNull: false
     }

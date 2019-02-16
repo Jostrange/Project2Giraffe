@@ -1,39 +1,39 @@
 $(document).ready(function () {
 
-  let offerId = JSON.parse(localStorage.getItem("offerId"));
-  console.log(offerId.offerId)
-  $("#submitOfferButton").on("click", function () {
-      var newOffer = {
-          offerId: offerId.offerId,
-          item_name: $("#offerItem").val().trim(),
-          item_zip: $("#offerZipcode").val(),
-          full_name: $("#offerFullName").val().trim(),
-          item_description: $("#offerDescription").val().trim(),
-          contact_info: $("offerContactInfo").val(), 
-          // created_at: moment().format("MM-DD-YYYY HH:mm:ss")
-      };
-      console.log(newOffer)
-      $('#offers-modal').modal('close');
-      $.ajax({
-          contentType: "application/JSON",
-          url: "/api/offers",
-          method: "POST",
-             data: JSON.stringify(newOffer)
-      }).then(function (offerResponse) {
-          // console.log(postResponse);
-          // var postcard = $("<div>");
-          // postcard.addClass("postcard");
+    let offerId = JSON.parse(localStorage.getItem("offerId"));
+    console.log(offerId);
+    $("#submitOfferButton").on("click", function () {
+        var newOffer = {
+            offerId: $("#offerId"),
+            offerItemName: $("#offerItem").val().trim(),
+            offerItemZip: $("#offerZipcode").val(),
+            offerFullName: $("#offerName").val(),
+            offerItemDescription: $("#offerDescription").val().trim(),
+            offerContactInfo: $("#offerContactInfo").val()
+            // created_at: moment().format("MM-DD-YYYY HH:mm:ss")
+        };
+        console.log(newOffer)
+        $('#trade-modal').modal('close');
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/api/offers",
+            method: "POST",
+            data: JSON.stringify(newOffer)
+        }).then(function (offerResponse) {
+            console.log(offerResponse);
+            var offercard = $("<div>");
+            offercard.addClass("offercard");
 
-          // postcard.append("<p id='newPostItem'>" + postResponse.itemName +"</p>");
-          // postcard.append("<img id='newPostImage src='" + postResponse.image + "'>");
-          // postcard.append("<p id='newPostDescription'>" + postResponse.description + "</p>");
-          // postcard.append("<p id='newPostCategory'>" + postResponse.category + "</p>");
-          // postcard.append("<p id='newPostZipcode'>" + postResponse.zipcode + "</p>");
+            offercard.append("<p id='offerItem'>" + offerResponse.offerItemName +"</p>");
+            offercard.append("<p id='offerDescription'>" + offerResponse.offerItemDescription + "</p>");
+            offercard.append("<p id='offerName'>" + offerResponse.offerFullName + "</p>");
+            offercard.append("<p id='offerZipcode'>" + offerResponse.offerItemZip + "</p>");
+            offercard.append("<p id='offerContactInfo'>" + offerResponse.offerContactInfo + "</p>");
 
-          // $("#feedcontainer").prepend(postcard);
-          window.location.href = "/userpage";
-          window.location.href = "/homepage";
-      })
-  })
+            $("#feedcontaineroffers").prepend(offercard);
+            
+           
+        })
+    })
 }
 )
