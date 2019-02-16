@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="col-12">
+        <nav class="navbar" role="navigation" aria-label="main navigation">
+            <div class="navbar-brand">
+                <img id="logo" src="/styles/images/logo.png">
+            </div>
+            <div id="navbarBasicExample" class="navbar-menu">
+                <div class="navbar-start">
+                    <div class="navbar-item">
+                        <a href="/userpage" id="home" class="navbar-item">
+                            Back to Homepage
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="navbar-end">
+        </nav>
+    </div>
+</div>
+
+  <!-- OFFERS -->
+      <div class="container">
+  <br>
+  <ul id="feedcontainer" class="collection">
+    {{#each data}}
+    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+    <li id="post" data-id={{id}} class="collection-item avatar">
+      <span id ="post-itemname" class="title">{{itemName}}</span>
+      <br>
+      <img id='PostImage' src="{{image}}" alt="postImage">
+      <br>
+      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+      <br>
+      <span id ="post-category" class="title">Category: {{category}}</span>
+      <br>
+      <span id ="post-description" class="title">Description: {{description}}</span>
+      <br>
+      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+      <br>
+      <button id="deleteButton" data-postID={{id}} class="button is-light modal-trigger">Delete Post?</button>
+      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button> --}}
+      {{!-- <p> Test</p> --}}
+      {{!-- <p> Test</p> --}}
+      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+    {{!-- </li> --}}
+    {{/each}}
+  </ul>
+</div>
+</div>

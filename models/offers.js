@@ -25,8 +25,8 @@ module.exports = function (sequelize, DataTypes) {
 
   //commenting this out until we have more understanding of how we are routing/using the data
 
-  offers.associate = function (models) {
-    offers.hasMany(models.postItem, {
+  offers.associate = function(models) {
+    offers.belongsTo(models.postItem, {
       // foreignKey: "user_id",
       onDelete: "cascade"
     });
