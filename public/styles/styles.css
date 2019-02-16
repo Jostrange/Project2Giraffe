@@ -247,3 +247,16 @@ footer {
   border-style: double;
   font-size: 16px;
 }
+
+#deleteButton {
+  margin: 10px 0;
+  color: red;
+  border:red 2px solid;
+  background-color: white;
+}
+
+#deleteButton:hover {
+  background-color: red;
+  color: white;
+  
+}
