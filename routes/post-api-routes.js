@@ -42,7 +42,7 @@ module.exports = function(app) {
       })
 
     // GET route for getting all the datas from both postItem & user table filtered with category.
-    app.get("/api/posts/:category", function(req, res) {
+    app.get("/api/home/:category", function(req, res) {
       db.postItem.findAll({
         where: {
                 category: req.params.category
@@ -54,6 +54,23 @@ module.exports = function(app) {
       }).then(function(dbPostUser) {
         // console.log(dbPostUser)
            res.render("index", { data: dbPostUser});
+          // res.json(dbPostUser)
+         });
+      })
+
+      // GET route for getting all the datas from both postItem & user table filtered with category.
+    app.get("/api/user/:category", function(req, res) {
+      db.postItem.findAll({
+        where: {
+                category: req.params.category
+              },
+        raw: true,
+        include: [{ 
+          model: db.user
+        }]
+      }).then(function(dbPostUser) {
+        // console.log(dbPostUser)
+           res.render("userPage", { data: dbPostUser});
           // res.json(dbPostUser)
          });
       })
