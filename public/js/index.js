@@ -220,6 +220,14 @@ $("#submitOfferButton").on("click", function (e) {
   }).then(function (postResponse) {
       console.log(postResponse);
       // window.location.href = "/userpage";
+      $('#email-modal').modal();
+      $('#email-modal').modal('open');
   })
 })
+$("#emailButton").on("click", function (e) {
+  e.preventDefault();
+  $('#email-modal').modal();
+  $('#trade-modal').modal('close');
+});
+
 

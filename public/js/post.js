@@ -102,7 +102,14 @@ $(document).ready(function () {
             data: JSON.stringify(newPost)
         }).then(function (postResponse) {
             console.log(postResponse);
+            $('#email-modal').modal();
+            $('#email-modal').modal('open');
             // window.location.href = "/userpage";
         })
     })
+    $("#emailButton").on("click", function (e) {
+        e.preventDefault();
+        $('#email-modal').modal();
+        $('#trade-modal').modal('close');
+      });
 })

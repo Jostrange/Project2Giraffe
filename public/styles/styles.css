@@ -82,7 +82,7 @@ background-image: url(/styles/images/white-waves.png)
   color: navy;
 }
 
-#submitOfferButton {
+#submitOfferButton{
   width: 40%;
   text-align: center;
   margin: auto;
@@ -127,6 +127,14 @@ text-align: center;
   border: 2px solid navy;
 }
 
-#submitPostBtn {
+#submitPostBtn,#emailButton {
   background-color: navy;
+}
+
+.emailNotify{
+  font-size: 30px;
+  color: navy;
+}
+.emailBorder{
+  border: 2px double navy;
 }
