@@ -1,5 +1,5 @@
 $(document).ready(function () {
-
+    let tradeModalEmail = ""
     let userId = JSON.parse(localStorage.getItem("userId"));
     console.log(userId.userId)
     $("#submitPostBtn").on("click", function () {
@@ -34,6 +34,11 @@ $(document).ready(function () {
             window.location.href = "/userpage";
         })
     })
+    
+    // $(document).on("click", "#submitOfferButton",function (e) {
+    //     e.preventDefault();
+
+    // see onluy the signes in user posts
     $("#your-posts").on("click", function () {
     
         $.ajax({
@@ -45,6 +50,8 @@ $(document).ready(function () {
             window.location.href = "/api/yourpost/"+userId.userId;
         })
     })
+
+    // delete the post 
     $(document).on("click", "#deleteButton",function (e) {
         e.preventDefault();
         console.log($(this).attr("data-postID"))
@@ -61,5 +68,41 @@ $(document).ready(function () {
             window.location.href = "/api/yourpost/"+userId.userId;
         })
     });
-}
-)
+
+    // when a trade button is clicked 
+    $(document).on("click", "#tradeButton",function (e) {
+        e.preventDefault();
+        var myVal = $(this).attr("data-email")
+        console.log(myVal);
+        $('#trade-modal').find("#submitOfferButton").attr('data-email',myVal);
+        $('#trade-modal').modal();
+        $('#trade-modal').modal('open');
+      });
+      
+    // when a submit offer button is clicked(Trade)
+    $("#submitOfferButton").on("click", function (e) {
+        e.preventDefault();
+        var myVal = $(this).attr("data-email")
+        var newPost = {
+            email: myVal,
+            name: $("#offerName").val().trim(),
+            contactInfo: $("#offerContactInfo").val(),
+            item: $("#offerItem").val().trim(),
+            description: $("#offerDescription").val().trim(),
+            zipcode: $("#offerZipcode").val(), 
+            link:$("#offerLink").val().trim()
+
+        };
+        console.log(newPost)
+        $('#trade-modal').modal('close');
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/api/email",
+            method: "POST",
+            data: JSON.stringify(newPost)
+        }).then(function (postResponse) {
+            console.log(postResponse);
+            // window.location.href = "/userpage";
+        })
+    })
+})

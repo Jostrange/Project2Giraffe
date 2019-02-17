@@ -186,3 +186,40 @@ function signOut() {
 $submitBtn.on("click", handleFormSubmit);
 $("submitBtn").on("click", postSubmit);
 $exampleList.on("click", ".delete", handleDeleteBtnClick);
+
+// when a trade button is clicked 
+$(document).on("click", "#tradeButton",function (e) {
+  e.preventDefault();
+  var myVal = $(this).attr("data-email")
+  console.log(myVal);
+  $('#trade-modal').find("#submitOfferButton").attr('data-email',myVal);
+  $('#trade-modal').modal();
+  $('#trade-modal').modal('open');
+});
+// when a submit offer button is clicked(Trade)
+$("#submitOfferButton").on("click", function (e) {
+  e.preventDefault();
+  var myVal = $(this).attr("data-email")
+  var newPost = {
+      email: myVal,
+      name: $("#offerName").val().trim(),
+      contactInfo: $("#offerContactInfo").val(),
+      item: $("#offerItem").val().trim(),
+      description: $("#offerDescription").val().trim(),
+      zipcode: $("#offerZipcode").val(), 
+      link:$("#offerLink").val().trim()
+
+  };
+  console.log(newPost)
+  $('#trade-modal').modal('close');
+  $.ajax({
+      contentType: "application/JSON",
+      url: "/api/email",
+      method: "POST",
+      data: JSON.stringify(newPost)
+  }).then(function (postResponse) {
+      console.log(postResponse);
+      // window.location.href = "/userpage";
+  })
+})
+

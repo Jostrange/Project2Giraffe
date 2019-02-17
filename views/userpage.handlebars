@@ -86,8 +86,8 @@
       <br>
       <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
-      <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
-      <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+      <button data-email={{'user.email'}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
       <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
       {{!-- <p> Test</p> --}}
       {{!-- <p> Test</p> --}}
@@ -201,9 +201,13 @@
             <input id="offerContactInfo" type="text" class="validate">
             <label for="offerContactInfo">Phone # or Email Address</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field col s6">
             <input id="offerItem" type="text" class="validate">
             <label for="offerItem">Item up for trade</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="offerLink" type="text" class="validate">
+            <label for="offerLink">Image url</label>
           </div>
           <div class="row">
             <div class="input-field col s12">
@@ -239,10 +243,10 @@
       $("#postDescription").characterCounter();
     });
 
- $("#tradeButton").on("click", function (event) {
+ {{!-- $("#tradeButton").on("click", function (event) {
       event.preventDefault();
       $('#trade-modal').modal();
-    });
+    }); --}}
     
      $("#logoutBtn").on("click", function(){
     

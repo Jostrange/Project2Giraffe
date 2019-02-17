@@ -78,26 +78,26 @@
     {{#each data}}
     {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
     <li id="post" data-id={{id}} class="collection-item avatar">
-      <span id="post-itemname" class="title">{{itemName}}</span>
+      <span id ="post-itemname" class="title">{{itemName}}</span>
       <br>
       <img id='PostImage' src="{{image}}" alt="postImage">
       <br>
       <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
       <br>
-      <span id="post-category" class="title">Category: {{category}}</span>
+      <span id ="post-category" class="title">Category: {{category}}</span>
       <br>
-      <span id="post-description" class="title">Description: {{description}}</span>
+      <span id ="post-description" class="title">Description: {{description}}</span>
       <br>
-      <span id="post-description" class="title">Zipcode: {{zipcode}}</span>
+      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
-      <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
-      <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+      <button data-email={{'user.email'}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
       <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
       {{!-- <p> Test</p> --}}
       {{!-- <p> Test</p> --}}
       {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-      {{!-- </li> --}}
-      {{/each}}
+    {{!-- </li> --}}
+    {{/each}}
   </ul>
 </div>
 
@@ -117,9 +117,13 @@
             <input id="offerContactInfo" type="text" class="validate">
             <label for="offerContactInfo">Phone # or Email Address</label>
           </div>
-          <div class="input-field col s12">
+          <div class="input-field col s6">
             <input id="offerItem" type="text" class="validate">
             <label for="offerItem">Item up for trade</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="offerLink" type="text" class="validate">
+            <label for="offerLink">Image url</label>
           </div>
           <div class="row">
             <div class="input-field col s12">
@@ -174,10 +178,10 @@
 <script type="text/javascript">
   $(document).ready(function () {
 
-    $("#tradeButton").on("click", function (event) {
+    {{!-- $("#tradeButton").on("click", function (event) {
       event.preventDefault();
       $('#trade-modal').modal();
-    });
+    }); --}}
 
     $("#signin").on("click", function (event) {
       event.preventDefault();
