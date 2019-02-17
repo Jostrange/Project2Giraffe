@@ -1,4 +1,4 @@
-Get references to page elements
+// Get references to page elements
 var $exampleText = $("#example-text");
 var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
@@ -141,6 +141,7 @@ var handleDeleteBtnClick = function() {
 
 //Google sign in script from docs
 function onSignIn(googleUser) {
+  // alert("google api handoff")
   // Useful data for your client-side scripts:
   var profile = googleUser.getBasicProfile();
   console.log("ID: " +          profile.getId()); // Don't send this directly to your server!
@@ -168,7 +169,7 @@ function onSignIn(googleUser) {
     window.location.href = "/userpage";
   })
   
-// }
+}
 //code for signing out from google api
 $("#logout").on("click", function(){
   console.log("HEY")
