@@ -9,22 +9,73 @@ const nodemailer = require("nodemailer");
 
 module.exports = function(app) {
 
-  // GET route for getting all of the offers
-  app.get("/api/offers", function(req, res) {
-
-    var query = {};
-    if (req.query.user_id) {
-      query.UserId = req.query.user_id;
+  //  get yourPost details
+  app.get("/yourPage/:id", function(req, res) {
+    console.log(req.params)
+    db.postItem.findAll({
+      raw: true,
+      where : { userId : req.params.id },
+      include: [{ 
+        model: db.user
+      }]
+    }).then(function(dbPostUser) {
+      console.log(dbPostUser)
+      console.log(dbPostUser[0].userId)
+      res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser});
+        // res.json(dbPostUser)
+       });
+    })
+// GET route for getting all the datas from both postItem & user table filtered with category.
+app.get("/api/yourPage/:id/:category", function(req, res) {
+  db.postItem.findAll({
+    where: {
+            userId: req.params.id,
+            category: req.params.category
+          },
+    raw: true,
+    include: [{ 
+      model: db.user
+    }]
+  }).then(function(dbPostUser) {
+    // console.log(dbPostUser)
+    if(dbPostUser.length){
+       res.render("yourPage", {id: dbPostUser[0].userId, data: dbPostUser});
     }
+    else{
+      res.redirect(`/yourPage/${req.params.id}/`)
+    }
+      // res.json(dbPostUser)
+     });
+  })
 
-    db.Offers.findAll({
-      where: query,
-      include: [db.User]
-    }).then(function(dbOffer) {
-      res.json(dbOffer);
+  // DELETE route for deleting posts
+  app.delete("/api/yourPost/:id", function(req, res) {
+    db.postItem.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(postItem) {
+      // console.log(postItem);
+      res.json(postItem);
     });
-
   });
+
+  // GET route for getting all of the offers
+  // app.get("/api/offers", function(req, res) {
+
+  //   var query = {};
+  //   if (req.query.user_id) {
+  //     query.UserId = req.query.user_id;
+  //   }
+
+  //   db.Offers.findAll({
+  //     where: query,
+  //     include: [db.User]
+  //   }).then(function(dbOffer) {
+  //     res.json(dbOffer);
+  //   });
+
+  // });
 
   // Get route for retrieving a single offer
   app.get("/api/offers/:id", function(req, res) {

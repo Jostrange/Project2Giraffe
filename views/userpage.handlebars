@@ -1,19 +1,15 @@
-<div class="container">
+<div class="row ">
   <div class="col-12">        
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
+           <a href="/userPage">
           <img id="logo" src="/styles/images/logo.png">
-      
-          <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
           </a>
         </div>
         <div id="navbarBasicExample" class="navbar-menu">
           <div class="navbar-start">
         <div class="navbar-item">
-            <a href= "/userpage" id = "home" class="navbar-item">
+            <a href= "/userPage" id = "home" class="navbar-item">
               Home
             </a>
 
@@ -32,22 +28,22 @@
               </a>
       
               <div class="navbar-dropdown">
-          <a href="/api/user/Food" class="navbar-item">
+          <a href="/api/userPage/Food" class="navbar-item">
             Food
           </a>
-          <a href="/api/user/Products" class="navbar-item">
+          <a href="/api/userPage/Products" class="navbar-item">
             Products
           </a>
-          <a href="/api/user/Services" class="navbar-item">
+          <a href="/api/userPage/Services" class="navbar-item">
             Services
           </a>
-          <a href="/api/user/Clothing" class="navbar-item">
+          <a href="/api/userPage/Clothing" class="navbar-item">
             Clothing
           </a>
-          <a href="/api/user/Beauty & Health" class="navbar-item">
+          <a href="/api/userPage/Beauty & Health" class="navbar-item">
             Beauty & Health
           </a>
-          <a href="/api/user/Other" class="navbar-item">
+          <a href="/api/userPage/Other" class="navbar-item">
             Other
           </a>
         </div>
@@ -87,7 +83,7 @@
       <br>
       <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
-      <button data-email={{'user.email'}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
       {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
       <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
       {{!-- <p> Test</p> --}}
@@ -250,39 +246,7 @@
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script type="text/javascript" src="/js/post.js"></script>
-<!-- <script src="/js/index.js"></script> -->
+<script type="text/javascript" src="/js/userPage.js"></script>
 
 
-<script type="text/javascript">
-  $(document).ready(function () {
 
-    $("#post-item").on("click", function (event) {
-      event.preventDefault();
-      $("#post-modal").modal();
-      $("#postDescription").characterCounter();
-    });
-
- {{!-- $("#tradeButton").on("click", function (event) {
-      event.preventDefault();
-      $('#trade-modal').modal();
-    }); --}}
-    
-     $("#logoutBtn").on("click", function(){
-    
-
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-      alert("signed out");
-    });
-  }
-  signOut();
-    window.location.href = "/";
-
-  });
- 
-  });
-
-</script>

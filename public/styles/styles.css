@@ -138,3 +138,14 @@ text-align: center;
 .emailBorder{
   border: 2px double navy;
 }
+footer{
+  background-color: navy !important;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}

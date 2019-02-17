@@ -20,29 +20,30 @@ module.exports = function(app) {
       }]
     }).then(function(dbPostUser) {
       // console.log(dbPostUser)
-        res.render("index", { data: dbPostUser});
+        res.render("homePage", { data: dbPostUser});
         // res.json(dbPostUser)
        });
     })
 
-    //  get yourPost details
-    app.get("/api/yourpost/:id", function(req, res) {
-      console.log(req.params)
-      db.postItem.findAll({
-        raw: true,
-        where : { userId : req.params.id },
-        include: [{ 
-          model: db.user
-        }]
-      }).then(function(dbPostUser) {
-        // console.log(dbPostUser)
-        res.render("yourPage", { data: dbPostUser});
-          // res.json(dbPostUser)
-         });
-      })
+    // GET route for getting all the datas from both postItem & user table
+  app.get("/homePage", function(req, res) {
+    db.postItem.findAll({
+      raw: true,
+      include: [{ 
+        model: db.user,
+        // where : { id : db.postItem.userId }
+      }]
+    }).then(function(dbPostUser) {
+      // console.log(dbPostUser)
+        res.render("homePage", { data: dbPostUser});
+        // res.json(dbPostUser)
+       });
+    })
+
+    
 
     // GET route for getting all the datas from both postItem & user table filtered with category.
-    app.get("/api/home/:category", function(req, res) {
+    app.get("/api/homePage/:category", function(req, res) {
       db.postItem.findAll({
         where: {
                 category: req.params.category
@@ -53,28 +54,14 @@ module.exports = function(app) {
         }]
       }).then(function(dbPostUser) {
         // console.log(dbPostUser)
-           res.render("index", { data: dbPostUser});
+           res.render("homePage", { data: dbPostUser});
           // res.json(dbPostUser)
          });
       })
 
-      // GET route for getting all the datas from both postItem & user table filtered with category.
-    app.get("/api/user/:category", function(req, res) {
-      db.postItem.findAll({
-        where: {
-                category: req.params.category
-              },
-        raw: true,
-        include: [{ 
-          model: db.user
-        }]
-      }).then(function(dbPostUser) {
-        // console.log(dbPostUser)
-           res.render("userPage", { data: dbPostUser});
-          // res.json(dbPostUser)
-         });
-      })
+      
 
+       
   // app.get("/api/posts", function(req, res) {
 
   //   var query = {};
@@ -87,7 +74,7 @@ module.exports = function(app) {
   //     include: [db.User]
   //   }).then(function(dbPost) {
   //     res.json(dbPost);
-      // res.render("index", { data: dbPost });
+      // res.render("homePage", { data: dbPost });
     // });
 
   // });
@@ -114,17 +101,7 @@ module.exports = function(app) {
     });
   });
 
-  // DELETE route for deleting posts
-  app.delete("/api/yourPost/:id", function(req, res) {
-    db.postItem.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(postItem) {
-      // console.log(postItem);
-      res.json(postItem);
-    });
-  });
+  
 
   // PUT route for updating posts
   // app.put("/api/posts", function(req, res) {

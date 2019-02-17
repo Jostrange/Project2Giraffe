@@ -14,21 +14,19 @@ app.use(express.static("public"));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 // Handlebars
 app.engine("handlebars",exphbs({defaultLayout: "main"}));
 app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/html-api-routes")(app);
-require("./routes/offer-api-routes")(app);
-require("./routes/post-api-routes")(app);
-require("./routes/user-api-routes")(app);
+require("./routes/yourPage-routes")(app);
+require("./routes/homePage-routes")(app);
+require("./routes/userPage-routes")(app);
 
 var syncOptions = { force: false };
 
-// app.get("/userpage", function(req, res) {
-//   res.render("userpage");
-// });
 // If running a test, set syncOptions.force to true
 // clearing the `testdb`
 console.log(process.env.NODE_ENV);

@@ -2,19 +2,14 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
+    <a href="/homePage">
     <img id="logo" src="/styles/images/logo.png">
-
-    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
-      data-target="navbarBasicExample">
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
     </a>
   </div>
 
   <div id="navbarBasicExample" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
+      <a href="/homePage" class="navbar-item">
         Home
       </a>
 
@@ -24,22 +19,22 @@
         </a>
 
         <div class="navbar-dropdown">
-          <a href="/api/home/Food" class="navbar-item">
+          <a href="/api/homePage/Food" class="navbar-item">
             Food
           </a>
-          <a href="/api/home/Products" class="navbar-item">
+          <a href="/api/homePage/Products" class="navbar-item">
             Products
           </a>
-          <a href="/api/home/Services" class="navbar-item">
+          <a href="/api/homePage/Services" class="navbar-item">
             Services
           </a>
-          <a href="/api/home/Clothing" class="navbar-item">
+          <a href="/api/homePage/Clothing" class="navbar-item">
             Clothing
           </a>
-          <a href="/api/home/Beauty & Health" class="navbar-item">
+          <a href="/api/homePage/Beauty & Health" class="navbar-item">
             Beauty & Health
           </a>
-          <a href="/api/home/Other" class="navbar-item">
+          <a href="/api/homePage/Other" class="navbar-item">
             Other
           </a>
         </div>
@@ -78,26 +73,27 @@
     {{#each data}}
     {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
     <li id="post" data-id={{id}} class="collection-item avatar">
-      <span id ="post-itemname" class="title">{{itemName}}</span>
+      <span id="post-itemname" class="title">{{itemName}}</span>
       <br>
       <img id='PostImage' src="{{image}}" alt="postImage">
       <br>
       <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
       <br>
-      <span id ="post-category" class="title">Category: {{category}}</span>
+      <span id="post-category" class="title">Category: {{category}}</span>
       <br>
-      <span id ="post-description" class="title">Description: {{description}}</span>
+      <span id="post-description" class="title">Description: {{description}}</span>
       <br>
-      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+      <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
       <br>
-      <button data-email={{'user.email'}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger"
+        data-target="trade-modal">Trade?</button>
       {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
       <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
       {{!-- <p> Test</p> --}}
       {{!-- <p> Test</p> --}}
       {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-    {{!-- </li> --}}
-    {{/each}}
+      {{!-- </li> --}}
+      {{/each}}
   </ul>
 </div>
 
@@ -187,37 +183,6 @@
   </div>
 </div> --}}
 
-
-
-
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-<script src="/js/index.js"></script>
-
-<script type="text/javascript">
-  $(document).ready(function () {
-
-    {{!-- $("#tradeButton").on("click", function (event) {
-      event.preventDefault();
-      $('#trade-modal').modal();
-    }); --}}
-
-    $("#signin").on("click", function (event) {
-      event.preventDefault();
-      $('#signin-modal').modal();
-    });
-  });
-
-  $("#logoutBtn").on("click", function () {
-
-
-    function signOut() {
-      var auth2 = gapi.auth2.getAuthInstance();
-      auth2.signOut().then(function () {
-        console.log('User signed out.');
-        alert("signed out");
-      });
-    }
-    signOut();
-  });
-</script>
+<script src="/js/homePage.js"></script>

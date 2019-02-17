@@ -9,7 +9,7 @@ var db = require("../models");
 module.exports = function (app) {
 
   // GET route for getting all the datas from both postItem & user table
-  app.get("/userpage", function(req, res) {
+  app.get("/userPage", function(req, res) {
     db.postItem.findAll({
       raw: true,
       include: [{ 
@@ -18,11 +18,27 @@ module.exports = function (app) {
       }]
     }).then(function(dbPostUser) {
       // console.log(dbPostUser)
-        res.render("userpage", { data: dbPostUser});
+        res.render("userPage", { data: dbPostUser});
         // res.json(dbPostUser)
        });
     })
 
+  // GET route for getting all the datas from both postItem & user table filtered with category.
+  app.get("/api/userPage/:category", function(req, res) {
+    db.postItem.findAll({
+      where: {
+              category: req.params.category
+            },
+      raw: true,
+      include: [{ 
+        model: db.user
+      }]
+    }).then(function(dbPostUser) {
+      // console.log(dbPostUser)
+         res.render("userPage", { data: dbPostUser});
+        // res.json(dbPostUser)
+       });
+    })
 
   // GET route for getting all of the users
 
