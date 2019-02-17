@@ -1,8 +1,9 @@
 ![image info](./public/styles/images/logo.png)
-# Tradesies 
+
 
 ### Overview
 ---
+An app that allows users to give and receive with no costs and to give a greater sense of users helping each other in their own communities.
 
 ### Getting Started
 ---
@@ -37,18 +38,25 @@
 }
 ```
 
-### Demos
----
-* Tradesies
-    * [Heroku Link]()
-
 ### Contributors :sparkles:
 ---
 
-Ana Lee - Front End UI.
+[Ana Lee](https://github.com/anabellee25)
 
-Paulie - Front End javascript.
+[Paulie Rodriguez](https://github.com/jorgebustamante) 
 
-Swapna Lia Anil - Backend Routing.
+[Swapna Lia Anil](https://github.com/liaswapna)
 
-Josie Strange - Backend Database.
+[Josie Strange](https://github.com/Jostrange)
+
+### Screenshot
+---
+* User Page view:
+
+    ![image info](./public/styles/images/userpage.png)
+
+* User specific posts View 
+
+    ![image info](./public/styles/images/mypost.png)
+
+@Tradesies
