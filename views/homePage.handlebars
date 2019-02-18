@@ -1,100 +1,85 @@
-{{!-- NAVBAR --}}
+<div class="row">
+  <div class="col-12">
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
-  <div class="navbar-brand">
-    <a href="/homePage">
-    <img id="logo" src="/styles/images/logo.png">
-    </a>
-  </div>
+    {{!-- NAVBAR --}}
 
-  <div id="navbarBasicExample" class="navbar-menu">
-    <div class="navbar-start">
-      <a href="/homePage" class="navbar-item">
-        Home
-      </a>
-
-      <div class="navbar-item has-dropdown is-hoverable">
-        <a class="navbar-link">
-          Sort by
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a href="/homePage">
+          <img id="logo" src="/styles/images/logo.png">
         </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <a href="/homePage" class="navbar-item">
+            Home
+          </a>
+          <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link">
+              Sort by
+            </a>
+            <div class="navbar-dropdown">
+              <a href="/api/homePage/Food" class="navbar-item">
+                Food
+              </a>
+              <a href="/api/homePage/Products" class="navbar-item">
+                Products
+              </a>
+              <a href="/api/homePage/Services" class="navbar-item">
+                Services
+              </a>
+              <a href="/api/homePage/Clothing" class="navbar-item">
+                Clothing
+              </a>
+              <a href="/api/homePage/Beauty & Health" class="navbar-item">
+                Beauty & Health
+              </a>
+              <a href="/api/homePage/Other" class="navbar-item">
+                Other
+              </a>
+            </div>
+          </div>
+        </div>
 
-        <div class="navbar-dropdown">
-          <a href="/api/homePage/Food" class="navbar-item">
-            Food
-          </a>
-          <a href="/api/homePage/Products" class="navbar-item">
-            Products
-          </a>
-          <a href="/api/homePage/Services" class="navbar-item">
-            Services
-          </a>
-          <a href="/api/homePage/Clothing" class="navbar-item">
-            Clothing
-          </a>
-          <a href="/api/homePage/Beauty & Health" class="navbar-item">
-            Beauty & Health
-          </a>
-          <a href="/api/homePage/Other" class="navbar-item">
-            Other
-          </a>
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div id="wordsinnav">Post an item!</div>
+            <div class="buttons">
+              <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </nav>
 
-    <div class="navbar-end">
-      <div class="navbar-item">
-        <div id="wordsinnav">Post an item!</div>
-        <div class="buttons">
-          {{!-- <a id="signup" class="button is-primary modal-trigger" data-target="signup-modal">
-            <strong>Sign up</strong>
-          </a> --}}
-          {{!-- <div class="navbar-item"> --}}
-          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    {{!-- FEED --}}
 
-          {{!-- </div> --}}
-          {{!-- <a id="signin" class="button is-light modal-trigger" data-target="signin-modal">
-            Log in
-          </a> --}}
-          {{!-- <div id="logoutBtn" class="buttons">
-                <a class="button is-light" id="logout" >Sign out</a>
-                </a>
-              </div> --}}
-        </div>
-      </div>
+    <div class="container">
+      <br>
+      <ul id="feedcontainer" class="collection">
+        {{#each data}}
+        {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+        <li id="post" data-id={{id}} class="collection-item avatar">
+          <span id="post-itemname" class="title">{{itemName}}</span>
+          <br>
+          <img id='PostImage' src="{{image}}" alt="postImage">
+          <br>
+          <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+          <br>
+          <span id="post-category" class="title">Category: {{category}}</span>
+          <br>
+          <span id="post-description" class="title">Description: {{description}}</span>
+          <br>
+          <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+          <br>
+          <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger"
+            data-target="trade-modal">Trade?</button>
+          {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
+          <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+          {{/each}}
+      </ul>
     </div>
   </div>
-</nav>
-
-
-{{!-- FEED --}}
-<div class="container">
-  <br>
-  <ul id="feedcontainer" class="collection">
-    {{#each data}}
-    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
-    <li id="post" data-id={{id}} class="collection-item avatar">
-      <span id="post-itemname" class="title">{{itemName}}</span>
-      <br>
-      <img id='PostImage' src="{{image}}" alt="postImage">
-      <br>
-      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
-      <br>
-      <span id="post-category" class="title">Category: {{category}}</span>
-      <br>
-      <span id="post-description" class="title">Description: {{description}}</span>
-      <br>
-      <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
-      <br>
-      <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger"
-        data-target="trade-modal">Trade?</button>
-      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
-      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
-      {{!-- <p> Test</p> --}}
-      {{!-- <p> Test</p> --}}
-      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-      {{!-- </li> --}}
-      {{/each}}
-  </ul>
 </div>
 
 {{!-- MODAL FOR OFFER --}}
@@ -158,30 +143,37 @@
   </div>
 </div>
 
-{{!-- MODALFOR SIGN IN --}}
+{{!-- MODAL FOR REPORT --}}
 
-{{!-- <div id="signin-modal" class="modal">
-  <div class="modal-content col s12">
-    <img id="modal-logo" src="../styles/images/logo.png">
-
-    <div class="row">
-      <form class="col s12">
-        <div class="row">
-          <div class="input-field col s12">
-            <input id="enterUsername" type="text" class="validate">
-            <label for="enterUsername">Username</label>
-          </div>
-          <div class="input-field col s12">
-            <input id="enterPassword" type="text" class="validate">
-            <label for="enterPassword">Password</label>
-          </div>
+<div id="report-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="trade-logo" src="/styles/images/logo.png">
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div id="reportselect" class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Choose an option</option>
+            <option value="1">Inappropriate Content.</option>
+            <option value="2">It's a scam!</option>
+            <option value="3">The user who posted this is being weird.</option>
+            <option value="4">It's a pyramid scheme.</option>
+            <option value="4">Other reasons.</option>
+          </select>
+          <label>Reason for reporting:</label>
         </div>
-        </form>
-        <a id="signinSubmitBtn" class="waves-effect waves-light btn">
-          <i class="material-icons right">send</i>Sign In</a>
+        <div class="input-field col s12">
+          <br>
+          <br>
+          <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
+          <label for="reportDescription">Tell Us Why</label>
+        </div>
+        <a id="submitReportButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Report!</a>
+      </div>
     </div>
   </div>
-</div> --}}
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

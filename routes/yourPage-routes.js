@@ -37,11 +37,13 @@ app.get("/api/yourPage/:id/:category", function(req, res) {
       model: db.user
     }]
   }).then(function(dbPostUser) {
-    // console.log(dbPostUser)
+    console.log(dbPostUser)
     if(dbPostUser.length){
+      console.log("i am in if")
        res.render("yourPage", {id: dbPostUser[0].userId, data: dbPostUser});
     }
     else{
+      console.log("i am in else")
       res.render("404",{url:`/yourPage/${req.params.id}`,msg:'No Item Found',sol:'Back to my Posts'});
       // res.redirect(`/yourPage/${req.params.id}/`)
     }

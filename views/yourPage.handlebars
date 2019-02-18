@@ -1,8 +1,11 @@
-<div class="container">
+<div class="row">
   <div class="col-12">
+
+    {{!-- NAV-BAR --}}
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a href="/yourPage">
+        <a href="/userPage">
           <img id="logo" src="/styles/images/logo.png">
         </a>
       </div>
@@ -55,7 +58,8 @@
       </div>
     </nav>
 
-    <!-- FEED -->
+   {{!-- FEED --}}
+
     <div class="container">
       <br>
       <ul id="feedcontainer" class="collection">
@@ -75,25 +79,13 @@
           <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
           <br>
           <button id="deleteButton" data-postID={{id}} class="button is-light modal-trigger">Delete Post?</button>
-          {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
-      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button> --}}
-          {{!-- <p> Test</p> --}}
-          {{!-- <p> Test</p> --}}
-          {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-          {{!-- </li> --}}
           {{/each}}
       </ul>
     </div>
   </div>
 
-  {{!-- <div class="container">
-        <ul id="feedcontainer" class="collection">
-          <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
-          
-        </ul>
-      </div> --}}
+  {{!-- MODAL TO POST AN ITEM --}}
 
-  <!-- MODAL FOR POSTING AN ITEM -->
   <div id="post-modal" class="modal">
     <div class="modal-content col s12">
       <img id="postmodal-logo" src="/styles/images/logo.png">
@@ -115,16 +107,6 @@
               <label for="postItemurl">Image url</label>
             </div>
           </div>
-
-          {{!-- <div class="file-field input-field">
-                      <div  id="uploadImgBtn" class="btn">
-                        <span>Upload an Image</span>
-                        <input type="file">
-                      </div>
-                      <div class="file-path-wrapper">
-                        <input id="postImage" class="file-path validate" type="text">
-                      </div>
-                    </div> --}}
 
           <div class="row">
             <div class="input-field col s12">
@@ -172,7 +154,6 @@
     </div>
   </div>
 
-
   {{!-- MODAL FOR OFFER --}}
 
   <div id="trade-modal" class="modal">
@@ -210,8 +191,7 @@
       </div>
     </div>
   </div>
-
-
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script type="text/javascript" src="/js/yourPage.js"></script>
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script type="text/javascript" src="/js/yourPage.js"></script>

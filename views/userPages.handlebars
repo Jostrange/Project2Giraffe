@@ -1,186 +1,168 @@
 <div class="row ">
-  <div class="col-12">        
+  <div class="col-12">
+
+    {{!-- NAV-BAR --}}
+
     <nav class="navbar" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-           <a href="/userPage">
+      <div class="navbar-brand">
+        <a href="/userPage">
           <img id="logo" src="/styles/images/logo.png">
-          </a>
-        </div>
-        <div id="navbarBasicExample" class="navbar-menu">
-          <div class="navbar-start">
-        <div class="navbar-item">
-            <a href= "/userPage" id = "home" class="navbar-item">
+        </a>
+      </div>
+      <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+          <div class="navbar-item">
+            <a href="/userPage" id="home" class="navbar-item">
               Home
             </a>
-
             <a id="post-item" class="navbar-item modal-trigger" data-target="post-modal">
-                Post an Item
-              </a>
-
-              <a id="your-posts" class="navbar-item">
-               Your Posts
-              </a>
-
-      
+              Post an Item
+            </a>
+            <a id="your-posts" class="navbar-item">
+              Your Posts
+            </a>
             <div class="navbar-item has-dropdown is-hoverable">
               <a class="navbar-link">
                 Sort by
               </a>
-      
               <div class="navbar-dropdown">
-          <a href="/api/userPage/Food" class="navbar-item">
-            Food
-          </a>
-          <a href="/api/userPage/Products" class="navbar-item">
-            Products
-          </a>
-          <a href="/api/userPage/Services" class="navbar-item">
-            Services
-          </a>
-          <a href="/api/userPage/Clothing" class="navbar-item">
-            Clothing
-          </a>
-          <a href="/api/userPage/Beauty & Health" class="navbar-item">
-            Beauty & Health
-          </a>
-          <a href="/api/userPage/Other" class="navbar-item">
-            Other
-          </a>
-        </div>
-              </div>
-            </div>
-          </div>
-      </div>
-          <div class="navbar-end">
-            <div class="navbar-item">
-              <div id="logoutBtn" class="buttons">
-                                  <div class="g-signin2" data-onsuccess="onSignIn" style="display:none" data-theme="dark"></div>
-
-                <a class="button is-light" id="logout" >Sign out</a>
+                <a href="/api/userPage/Food" class="navbar-item">
+                  Food
+                </a>
+                <a href="/api/userPage/Products" class="navbar-item">
+                  Products
+                </a>
+                <a href="/api/userPage/Services" class="navbar-item">
+                  Services
+                </a>
+                <a href="/api/userPage/Clothing" class="navbar-item">
+                  Clothing
+                </a>
+                <a href="/api/userPage/Beauty & Health" class="navbar-item">
+                  Beauty & Health
+                </a>
+                <a href="/api/userPage/Other" class="navbar-item">
+                  Other
                 </a>
               </div>
             </div>
           </div>
         </div>
-      </nav>
-      
-      <!-- FEED -->
-      <div class="container">
-  <br>
-  <ul id="feedcontainer" class="collection">
-    {{#each data}}
-    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
-    <li id="post" data-id={{id}} class="collection-item avatar">
-      <span id ="post-itemname" class="title">{{itemName}}</span>
-      <br>
-      <img id='PostImage' src="{{image}}" alt="postImage">
-      <br>
-      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
-      <br>
-      <span id ="post-category" class="title">Category: {{category}}</span>
-      <br>
-      <span id ="post-description" class="title">Description: {{description}}</span>
-      <br>
-      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
-      <br>
-      <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
-      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
-      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
-      {{!-- <p> Test</p> --}}
-      {{!-- <p> Test</p> --}}
-      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
-    {{!-- </li> --}}
-    {{/each}}
-  </ul>
-</div>
-</div>
-
-      {{!-- <div class="container">
-        <ul id="feedcontainer" class="collection">
-          <!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION -->
-          
-        </ul>
-      </div> --}}
-      
-      <!-- MODAL FOR POSTING AN ITEM -->
-      <div id="post-modal" class="modal">
-        <div class="modal-content col s12">
-          <img id="postmodal-logo" src="styles/images/logo.png">
-          <div class="row">
-                <form action="#" class="col s12">
-                  <div class="row">
-                    <div class="input-field col s6">
-                      <input id="postItemName" type="text" class="validate">
-                      <label for="postItemName">Name of Item</label>
-                    </div>
-                      <div class="input-field col s6">
-                      <input id="zipCode" type="text" class="validate">
-                      <label for="zipCode">Zip Code</label>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="input-field col s12">
-                      <input id="postItemurl" type="text" class="validate">
-                      <label for="postItemurl">Image url</label>
-                    </div>
-                    </div>
-          
-                    {{!-- <div class="file-field input-field">
-                      <div  id="uploadImgBtn" class="btn">
-                        <span>Upload an Image</span>
-                        <input type="file">
-                      </div>
-                      <div class="file-path-wrapper">
-                        <input id="postImage" class="file-path validate" type="text">
-                      </div>
-                    </div> --}}
-          
-                  <div class="row">
-                        <div class="input-field col s12">
-                          <textarea id="postDescription" class="materialize-textarea" data-length="250"></textarea>
-                          <label for="postDescription">Brief Description of Item</label>
-                        </div>
-                      </div>
-
-                      <div style="color:navy; font-size:16px">Category: </div>
-                      <br>
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Food" checked />
-                          <span>Food</span>
-                        </label>
-                  
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Products" />
-                          <span>Products</span>
-                        </label>
-                     
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Services" />
-                          <span>Services</span>
-                        </label>
-                    
-                        <label>
-                          <input class="with-gap"name="categoryType" type="radio" value="Clothing"/>
-                          <span>Clothing</span>
-                        </label>
-                        <label>
-                          <input class="with-gap"name="categoryType" type="radio" value="Beauty & Health"/>
-                          <span>Beauty & Health</span>
-                        </label>
-                        <label>
-                          <input class="with-gap" name="categoryType" type="radio" value="Other" />
-                          <span>Other</span>
-                        </label>
-                     
-                </form>
-              <div class="modal-footer">
-              <a id="submitPostBtn" class="waves-effect waves-light btn">
-                <i class="material-icons right">send</i>Post!</a>
-              </div>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div id="logoutBtn" class="buttons">
+            <div class="g-signin2" data-onsuccess="onSignIn" style="display:none" data-theme="dark"></div>
+            <a class="button is-light" id="logout">Sign out</a>
+            </a>
           </div>
         </div>
       </div>
-      
+    </nav>
+  </div>
+
+  {{!-- FEED --}}
+
+  <div class="container">
+    <br>
+    <ul id="feedcontainer" class="collection">
+      {{#each data}}
+      {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+      <li id="post" data-id={{id}} class="collection-item avatar">
+        <span id="post-itemname" class="title">{{itemName}}</span>
+        <br>
+        <img id='PostImage' src="{{image}}" alt="postImage">
+        <br>
+        <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+        <br>
+        <span id="post-category" class="title">Category: {{category}}</span>
+        <br>
+        <span id="post-description" class="title">Description: {{description}}</span>
+        <br>
+        <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+        <br>
+        <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger"
+          data-target="trade-modal">Trade?</button>
+        {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
+        <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+        {{!-- <p> Test</p> --}}
+        {{!-- <p> Test</p> --}}
+        {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+        {{!-- </li> --}}
+        {{/each}}
+    </ul>
+  </div>
+</div>
+
+{{!-- MODAL TO POST AN ITEM --}}
+
+<div id="post-modal" class="modal">
+  <div class="modal-content col s12">
+    <img id="postmodal-logo" src="styles/images/logo.png">
+    <div class="row">
+      <form action="#" class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input id="postItemName" type="text" class="validate">
+            <label for="postItemName">Name of Item</label>
+          </div>
+          <div class="input-field col s6">
+            <input id="zipCode" type="text" class="validate">
+            <label for="zipCode">Zip Code</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="postItemurl" type="text" class="validate">
+            <label for="postItemurl">Image url</label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea id="postDescription" class="materialize-textarea" data-length="250"></textarea>
+            <label for="postDescription">Brief Description of Item</label>
+          </div>
+        </div>
+
+        <div style="color:navy; font-size:16px">Category: </div>
+        <br>
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Food" checked />
+          <span>Food</span>
+        </label>
+
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Products" />
+          <span>Products</span>
+        </label>
+
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Services" />
+          <span>Services</span>
+        </label>
+
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Clothing" />
+          <span>Clothing</span>
+        </label>
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Beauty & Health" />
+          <span>Beauty & Health</span>
+        </label>
+        <label>
+          <input class="with-gap" name="categoryType" type="radio" value="Other" />
+          <span>Other</span>
+        </label>
+
+      </form>
+      <div class="modal-footer">
+        <a id="submitPostBtn" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Post!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 {{!-- MODAL FOR OFFER --}}
 
@@ -243,10 +225,39 @@
   </div>
 </div>
 
+{{!-- MODAL FOR REPORT --}}
+
+<div id="report-modal" class="modal">
+  <div class="modal-content col s12">
+    <img id="trade-logo" src="/styles/images/logo.png">
+    <br>
+    <br>
+    <br>
+    <div class="row">
+      <div id="reportselect" class="input-field col s12">
+        <select>
+          <option value="" disabled selected>Choose an option</option>
+          <option value="1">Inappropriate Content.</option>
+          <option value="2">It's a scam!</option>
+          <option value="3">The user who posted this is being weird.</option>
+          <option value="4">It's a pyramid scheme.</option>
+          <option value="4">Other reasons.</option>
+        </select>
+        <label>Reason for reporting:</label>
+      </div>
+      <div class="input-field col s12">
+        <br>
+        <br>
+        <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
+        <label for="reportDescription">Tell Us Why</label>
+      </div>
+      <a id="submitReportButton" class="waves-effect waves-light btn">
+        <i class="material-icons right">send</i>Report!</a>
+    </div>
+  </div>
+</div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script type="text/javascript" src="/js/userPage.js"></script>
-
-
-

@@ -241,3 +241,14 @@ $("#logoutBtn").on("click", function () {
   signOut();
 });
 
+
+$("#reportButton").on("click", function () {
+  event.preventDefault();
+  $("#report-modal").modal();
+  $('select').formSelect();
+});
+
+$("#submitReportButton").on("click", function () {
+  $("#report-modal").modal('close');
+});
+

@@ -46,6 +46,7 @@ background-image: url(/styles/images/white-waves.png)
 
 .modal {
   max-height: 80%;
+  overflow-y:scroll; 
 }
 
 #modal-logo {
@@ -149,6 +150,15 @@ body {
 main {
   flex: 1 0 auto;
 }
+.page-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
 .message404{
   height: 100vh;
+}
+#submitReportButton{
+  background-color: navy;
 }
