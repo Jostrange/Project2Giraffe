@@ -149,3 +149,6 @@ body {
 main {
   flex: 1 0 auto;
 }
+.message404{
+  height: 100vh;
+}
