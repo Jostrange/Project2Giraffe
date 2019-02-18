@@ -20,10 +20,14 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }
   });
-
-  //commenting this out until we have more understanding of how we are routing/using the data
-  // offers.associate = function (models) {
-  //   models.user.hasMany(models.tradeOffer);
+  // Creates associates
+  // offers.associate = function(models) {
+  //   offers.belongsTo(models.postItem, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
   // };
+
   return offers;
 };

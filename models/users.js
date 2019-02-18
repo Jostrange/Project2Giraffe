@@ -15,6 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
 
+  // Creates associates
   user.associate = function(models) {
     user.hasMany(models.postItem, {
       onDelete: "cascade"
