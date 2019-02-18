@@ -165,7 +165,7 @@ function onSignIn(googleUser) {
   }
   API.saveUser(userObject).then(function(dbuser){
     localStorage.setItem("userId",JSON.stringify({userId: dbuser[0].id}));
-    window.location.href = "/userpage";
+    window.location.href = "/userPage";
   })
   
 }
