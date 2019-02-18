@@ -36,7 +36,7 @@ $(document).ready(function () {
             // postcard.append("<p id='newPostZipcode'>" + postResponse.zipcode + "</p>");
 
             // $("#feedcontainer").prepend(postcard);
-            window.location.href = "/userpage";
+            window.location.href = "/userPage";
         })
     })
 
