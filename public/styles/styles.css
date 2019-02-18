@@ -3,11 +3,11 @@
 } */
 html { 
 overflow-y:scroll; 
+height: 100vh;
 }
 
 body {
 min-height: 100% !important;
-
 background-image: url(/styles/images/white-waves.png)
 }
 

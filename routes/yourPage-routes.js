@@ -50,7 +50,8 @@ app.get("/api/yourPage/:id/:category", function(req, res) {
   })
 
   // DELETE route for deleting posts
-  app.delete("/api/yourPost/:id", function(req, res) {
+  app.delete("/yourPage/:id", function(req, res) {
+
     db.postItem.destroy({
       where: {
         id: req.params.id
@@ -150,16 +151,6 @@ app.get("/api/yourPage/:id/:category", function(req, res) {
     // });
   });
 
-  // DELETE route for deleting offers
-  app.delete("/api/offers/:id", function(req, res) {
-    db.Offer.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function(dbOffer) {
-      res.json(dbOffer);
-    });
-  });
 
   // PUT route for updating offers
   // app.put("/api/offers", function(req, res) {

@@ -72,7 +72,8 @@ $(document).ready(function () {
             method: "DELETE",
             // data: newPost
         }).then(function (postResponse) {
-            window.location.href = "/yourPage" + userId.userId;
+            // console.log(postResponse)
+            window.location.href = "/yourPage/" + userId.userId;
         })
     });
 
