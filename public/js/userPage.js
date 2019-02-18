@@ -74,13 +74,12 @@ $(document).ready(function () {
             method: "POST",
             data: JSON.stringify(newPost)
         }).then(function (postResponse) {
-            console.log(postResponse);
             $('#email-modal').modal();
             $('#email-modal').modal('open');
         })
     })
 
-    // email notificationn modal is closed on OK button is clicked
+    // email notification modal is closed on OK button is clicked
     $("#emailButton").on("click", function (e) {
         e.preventDefault();
         $('#email-modal').modal();
