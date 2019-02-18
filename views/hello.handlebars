@@ -1,0 +1,25 @@
+<ul id="feedcontainer" class="collection">
+    {{#each data}}
+    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+    <li id="post" data-id={{id}} class="collection-item avatar">
+      <span id ="post-itemname" class="title">{{itemName}}</span>
+      <br>
+      <img id='PostImage' src="{{image}}" alt="postImage">
+      <br>
+      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+      <br>
+      <span id ="post-category" class="title">Category: {{category}}</span>
+      <br>
+      <span id ="post-description" class="title">Description: {{description}}</span>
+      <br>
+      <span id ="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
+      <br>
+      <button data-email={{'user.email'}} data-postId={{id}} id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      {{!-- <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button> --}}
+      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+      {{!-- <p> Test</p> --}}
+      {{!-- <p> Test</p> --}}
+      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+    {{!-- </li> --}}
+    {{/each}}
+  </ul>

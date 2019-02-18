@@ -18,7 +18,7 @@ module.exports = function (app) {
       }]
     }).then(function(dbPostUser) {
       // console.log(dbPostUser)
-        res.render("userPage", { data: dbPostUser});
+        res.render("hello", { data: dbPostUser});
         // res.json(dbPostUser)
        });
     })
