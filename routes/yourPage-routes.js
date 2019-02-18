@@ -1,5 +1,5 @@
 // *********************************************************************************
-// offer-api-routes.js - this file offers a set of routes for displaying and saving data to the db
+// yourPage-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 
 
@@ -7,104 +7,78 @@
 var db = require("../models");
 const nodemailer = require("nodemailer");
 
-module.exports = function(app) {
+module.exports = function (app) {
 
-  //  get yourPost details
-  app.get("/yourPage/:id", function(req, res) {
+  // GET route for getting all the datas from both postItem & user table.
+  // Filtered with id.
+  app.get("/yourPage/:id", function (req, res) {
     console.log(req.params)
     db.postItem.findAll({
       raw: true,
-      where : { userId : req.params.id },
-      include: [{ 
+      where: { userId: req.params.id },
+      include: [{
         model: db.user
       }]
-    }).then(function(dbPostUser) {
+    }).then(function (dbPostUser) {
       console.log(dbPostUser)
       console.log(dbPostUser[0].userId)
-      res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser});
-        // res.json(dbPostUser)
-       });
-    })
-// GET route for getting all the datas from both postItem & user table filtered with category.
-app.get("/api/yourPage/:id/:category", function(req, res) {
-  db.postItem.findAll({
-    where: {
-            userId: req.params.id,
-            category: req.params.category
-          },
-    raw: true,
-    include: [{ 
-      model: db.user
-    }]
-  }).then(function(dbPostUser) {
-    console.log(dbPostUser)
-    if(dbPostUser.length){
-      console.log("i am in if")
-       res.render("yourPage", {id: dbPostUser[0].userId, data: dbPostUser});
-    }
-    else{
-      console.log("i am in else")
-      res.render("404",{url:`/yourPage/${req.params.id}`,msg:'No Item Found',sol:'Back to my Posts'});
-      // res.redirect(`/yourPage/${req.params.id}/`)
-    }
-      // res.json(dbPostUser)
-     });
+      res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser });
+    });
+  })
+
+  // GET route for getting all the datas from both postItem & user table.
+  // Filtered with id and category.
+  app.get("/api/yourPage/:id/:category", function (req, res) {
+    db.postItem.findAll({
+      where: {
+        userId: req.params.id,
+        category: req.params.category
+      },
+      raw: true,
+      include: [{
+        model: db.user
+      }]
+    }).then(function (dbPostUser) {
+      console.log(dbPostUser)
+      if (dbPostUser.length) {
+        console.log("i am in if")
+        res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser });
+      }
+      else {
+        console.log("i am in else")
+        res.render("404", { url: `/yourPage/${req.params.id}`, msg: 'No Item Found', sol: 'Back to my Posts' });
+      }
+    });
   })
 
   // DELETE route for deleting posts
-  app.delete("/yourPage/:id", function(req, res) {
+  app.delete("/yourPage/:id", function (req, res) {
 
     db.postItem.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(postItem) {
-      // console.log(postItem);
-      res.json(postItem);
+    }).then(function (dbPost) {
+      res.json(dbPost);
     });
   });
 
-  // GET route for getting all of the offers
-  // app.get("/api/offers", function(req, res) {
-
-  //   var query = {};
-  //   if (req.query.user_id) {
-  //     query.UserId = req.query.user_id;
-  //   }
-
-  //   db.Offers.findAll({
-  //     where: query,
-  //     include: [db.User]
-  //   }).then(function(dbOffer) {
-  //     res.json(dbOffer);
-  //   });
-
-  // });
-
-  // Get route for retrieving a single offer
-  app.get("/api/offers/:id", function(req, res) {
-    
-    db.Offer.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.User]
-    }).then(function(dbOffer) {
-      res.json(dbOffer);
-    });
-
-  });
-
-  // POST route for saving a new offer
-  // app.post("/api/offers", function(req, res) {
-  //   db.Offer.create(req.body).then(function(dbOffer) {
-  //     res.json(dbOffer);
+  // PUT route for updating offers
+  // app.put("/yourPage/:id", function(req, res) {
+  //   db.postItem.update(
+  //     req.body,
+  //     {
+  //       where: {
+  //         id: req.body.id
+  //       }
+  //     }).then(function(dbPost) {
+  //     res.json(dbPost);
   //   });
   // });
-  app.post("/api/email", function(req, res) {
 
-    console.log(req.body)
-        const output = `
+  // Route to send email notification.
+  app.post("/api/email", function (req, res) {
+    const output = `
         <h2>You have new offer in Tradesies</h2>
         <h3>Offer Details and Contact</h3>
         <hr>
@@ -121,50 +95,32 @@ app.get("/api/yourPage/:id/:category", function(req, res) {
         <p>Tradesies Team</p>
         <p>tradesies.notification@gmail.com</p>
         `;
-        let transporter = nodemailer.createTransport({
-            service: 'gmail',
-            auth: {
-              user: "tradesies.notification@gmail.com", // generated ethereal user
-              pass: "notify4trade" // generated ethereal password
-            },
-          });
+    let transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: "tradesies.notification@gmail.com", 
+        pass: "notify4trade" 
+      },
+    });
 
-          // setup email data with unicode symbols
-          let mailOptions = {
-            from: '"Tradesies Notification" tradesies.notification@gmail.com', // sender address
-            to: `${req.body.email}`, // list of receivers(tradesies.user@gmail.com)
-            subject: "You have a new offer in Tradesies", // Subject line
-            text: "Hello world?", // plain text body
-            html: output // html body
-          };
-        
-          // send mail with defined transport object
-          let info = transporter.sendMail(mailOptions)
-        
-          console.log("Message sent: %s", info.messageId);
-          // Preview only available when sending through an Ethereal account
-          console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+    // setup email data with unicode symbols
+    let mailOptions = {
+      from: '"Tradesies Notification" tradesies.notification@gmail.com', // sender address
+      to: `${req.body.email}`, // list of receivers(tradesies.user@gmail.com)
+      subject: "You have a new offer in Tradesies", // Subject line
+      text: "Hello world?", // plain text body
+      html: output // html body
+    };
 
-        res.redirect('/')
-        res.status(200).end()
+    // send mail with defined transport object
+    let info = transporter.sendMail(mailOptions)
 
-    // db.Offer.create(req.body).then(function(dbOffer) {
-    //   res.json(dbOffer);
-    // });
+    console.log("Message sent: %s", info.messageId);
+    // Preview only available when sending through an Ethereal account
+    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+    res.redirect('/')
+    res.status(200).end()
   });
-
-
-  // PUT route for updating offers
-  // app.put("/api/offers", function(req, res) {
-  //   db.Offer.update(
-  //     req.body,
-  //     {
-  //       where: {
-  //         id: req.body.id
-  //       }
-  //     }).then(function(dbOffer) {
-  //     res.json(dbOffer);
-  //   });
-  // });
 };
 

@@ -22,7 +22,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/html-api-routes")(app);
 require("./routes/yourPage-routes")(app);
 require("./routes/homePage-routes")(app);
 require("./routes/userPage-routes")(app);

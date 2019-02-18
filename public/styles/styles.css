@@ -1,6 +1,4 @@
-/* .list-group-item {
-  line-height: 2.5;
-} */
+
 html { 
 overflow-y:scroll; 
 height: 100vh;
@@ -28,16 +26,6 @@ background-image: url(/styles/images/white-waves.png)
   font-size: 20px;
   font-weight: 400;
 }
-/* 
-#signup {
-  background-color: navy;
-  width: 110px;
-}
-
-#signin {
-  font-weight: 500;
-  width: 110px;
-} */
 
 #feedcontainer {
   margin: 5px auto;
