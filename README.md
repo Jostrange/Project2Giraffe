@@ -1,13 +1,13 @@
 ![image info](./public/styles/images/logo.png)
-# Tradesies 
 
 ### Overview
 ---
+An app that allows users to give and receive with no costs and to give a greater sense of users helping each other in their own communities.
 
 ### Getting Started
 ---
-* Clone down repo ``` git clone https://github.com/Jostrange/Project2Giraffe.git```.
-* Navigate to the repo ```cd Project2Giraffe```.
+* Clone down repo ``` git clone git@github.com:liaswapna/Tradesies.git```.
+* Navigate to the repo ```cd Tradesies```.
 * Run command ```npm install``` in Terminal or GitBash
 * Run command ```node server``` to start the server.
 
@@ -17,10 +17,10 @@
 * CSS3
 * Materialize
 * Bulma UI
-* Bootstrap
 * Node.js
 * Express
 * Express-handlebars
+* Nodemailer
 * mysql
 * Sequelize
 
@@ -28,12 +28,14 @@
 ---
 ```js
 {
-"dotenv": "^6.2.0",
-"express": "^4.16.4",
-"express-handlebars": "^3.0.0",
-"mysql": "^2.16.0",
-"mysql2": "^1.6.4",
-"sequelize": "^4.42.0"
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.24.0",
+    "mysql2": "^1.6.4",
+    "nodemailer": "^5.1.1",
+    "sequelize": "^4.41.2"
 }
 ```
 
@@ -45,10 +47,4 @@
 ### Contributors :sparkles:
 ---
 
-Ana Lee - Front End UI.
-
-Paulie - Front End javascript.
-
-Swapna Lia Anil - Backend Routing.
-
-Josie Strange - Backend Database.
+![image info](./public/styles/images/contributors.png)
