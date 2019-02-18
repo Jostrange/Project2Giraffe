@@ -42,7 +42,8 @@ app.get("/api/yourPage/:id/:category", function(req, res) {
        res.render("yourPage", {id: dbPostUser[0].userId, data: dbPostUser});
     }
     else{
-      res.redirect(`/yourPage/${req.params.id}/`)
+      res.render("404",{url:`/yourPage/${req.params.id}`,msg:'No Item Found',sol:'Back to my Posts'});
+      // res.redirect(`/yourPage/${req.params.id}/`)
     }
       // res.json(dbPostUser)
      });
