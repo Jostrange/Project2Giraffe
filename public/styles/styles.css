@@ -6,7 +6,8 @@ height: 100vh;
 
 body {
 min-height: 100% !important;
-background-image: url(/styles/images/white-waves.png)
+background-image: url(/styles/images/white-waves.png);
+background-repeat: repeat;
 }
 
 .navbar {
@@ -129,7 +130,7 @@ text-align: center;
   border: 2px double navy;
 }
 footer{
-  background-color: navy !important;
+  background-color:navy !important;
 }
 body {
   display: flex;
@@ -143,6 +144,7 @@ main {
   position: fixed;
   bottom: 0;
   width: 100%;
+  font-size: 12px;
 }
 
 .message404{
