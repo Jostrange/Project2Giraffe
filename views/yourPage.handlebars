@@ -79,6 +79,7 @@
           <span id="post-zipcode" class="title">Zipcode: {{zipcode}}</span>
           <br>
           <button id="deleteButton" data-postID={{id}} class="button is-light modal-trigger">Delete Post?</button>
+          <button id="updateButton" data-postID={{id}} data-image={{image}} data-itemName={{itemName}} data-category={{category}} data-zipcode={{zipcode}} data-description="{{description}}"  class="button is-light modal-trigger" data-target="update-modal">Update Post?</button>
           {{/each}}
       </ul>
     </div>
@@ -191,6 +192,71 @@
       </div>
     </div>
   </div>
+
+  {{!-- MODAL TO UPDATE AN ITEM --}}
+
+  <div id="update-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="updatemodal-logo" src="/styles/images/logo.png">
+      <div class="row">
+        <form action="#" class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="updateItemName" type="text" class="validate">
+              <label class="active" for="updateItemName">Name of Item</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="updateZipCode" type="text" class="validate">
+              <label for="updateZipCode">Zip Code</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="updateItemurl" type="text" class="validate">
+              <label for="updateItemurl">Image url</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="updateDescription" class="materialize-textarea" data-length="250"></textarea>
+              <label for="updateDescription">Brief Description of Item</label>
+            </div>
+          </div>
+          <div style="color:navy; font-size:16px">Category: </div>
+          <br>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Food" checked />
+            <span>Food</span>
+          </label>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Products" />
+            <span>Products</span>
+          </label>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Services" />
+            <span>Services</span>
+          </label>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Clothing" />
+            <span>Clothing</span>
+          </label>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Beauty & Health" />
+            <span>Beauty & Health</span>
+          </label>
+          <label>
+            <input class="with-gap" name="updatecategoryType" type="radio" value="Other" />
+            <span>Other</span>
+          </label>
+        </form>
+        <div class="modal-footer">
+          <a id="submitUpdateBtn" class="waves-effect waves-light btn">
+            <i class="material-icons right">send</i>Update!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

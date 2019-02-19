@@ -20,6 +20,13 @@ $(document).ready(function () {
             description: $("#postDescription").val().trim(),
             category: $("input[name='categoryType']:checked").val(),
         };
+        
+        // clear the input values.
+        $("#postItemName").val("")
+        $("#zipCode").val("")
+        $("#postItemurl").val("")
+        $("#postDescription").val("")
+        $("input[name='categoryType']:checked").val("")
         $('#post-modal').modal('close');
         $.ajax({
             contentType: "application/JSON",
@@ -27,6 +34,7 @@ $(document).ready(function () {
             method: "POST",
             data: JSON.stringify(newPost)
         }).then(function (postResponse) {
+            window.location.href = "/yourPage/" + userId.userId;
         })
     })
 
@@ -97,6 +105,46 @@ $(document).ready(function () {
         $('#email-modal').modal();
         $('#trade-modal').modal('close');
     });
+
+    // when an update button is clicked, values are passed to modal and opens the update modal
+    $(document).on("click", "#updateButton", function (e) {
+        e.preventDefault();
+        M.updateTextFields();
+
+        // put values into modal fields
+        $('#update-modal').find("#updateItemName").val($(this).attr("data-itemName"));
+        $('#update-modal').find("#updateZipCode").val($(this).attr("data-zipcode"));
+        $('#update-modal').find("#updateItemurl").val($(this).attr("data-image"));
+        $('#update-modal').find("#updateDescription").val($(this).attr("data-description"));
+        $('#update-modal').find("#submitUpdateBtn").attr('data-postID', $(this).attr("data-postID"));
+
+        // open update modal
+        $('#update-modal').modal();
+        $('#update-modal').modal('open');
+    });
+
+    // when a submit offer button is clicked(Trade),an email is send to the post owner with inputted details
+    $("#submitUpdateBtn").on("click", function (e) {
+        e.preventDefault();
+        var newPost = {
+            userId: userId.userId,
+            id: $("#submitUpdateBtn").attr('data-postID'),
+            itemName: $("#updateItemName").val().trim(),
+            zipcode: $("#updateZipCode").val(),
+            image: $("#updateItemurl").val().trim(),
+            description: $("#updateDescription").val().trim(),
+            category: $("input[name='updatecategoryType']:checked").val(),
+        };
+        $('#update-modal').modal('close');
+        $.ajax({
+            contentType: "application/JSON",
+            url: "/yourPage",
+            method: "PUT",
+            data: JSON.stringify(newPost)
+        }).then(function (postResponse) {
+            window.location.href = "/yourPage/"+userId.userId;
+        })
+    })
 
     // User log out from google sign in  
     $("#logoutBtn").on("click", function () {

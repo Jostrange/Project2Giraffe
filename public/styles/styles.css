@@ -93,7 +93,7 @@ background-image: url(/styles/images/white-waves.png)
   font-size: 16px;
 }
 
-#postmodal-logo {
+#postmodal-logo,#updatemodal-logo {
   text-align: center;
   width: 200px;
   letter-spacing: 80px;
@@ -148,6 +148,6 @@ main {
 .message404{
   height: 100vh;
 }
-#submitReportButton{
+#submitReportButton,#submitUpdateBtn{
   background-color: navy;
 }

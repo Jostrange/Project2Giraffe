@@ -64,17 +64,19 @@ module.exports = function (app) {
   });
 
   // PUT route for updating offers
-  // app.put("/yourPage/:id", function(req, res) {
-  //   db.postItem.update(
-  //     req.body,
-  //     {
-  //       where: {
-  //         id: req.body.id
-  //       }
-  //     }).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  // });
+  app.put("/yourPage", function(req, res) {
+    console.log(req.body)
+    db.postItem.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbPost) {
+        console.log(dbPost)
+        res.json(dbPost);
+    });
+  });
 
   // Route to send email notification.
   app.post("/api/email", function (req, res) {
