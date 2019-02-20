@@ -51,7 +51,7 @@ An app that allows users to give and receive with no costs and to give a greater
     *   The user can click the Trade Button to make offer on the post.
     *   The user can also use Report Button if they doubt the post is a spam.
     *   The user can filter the feed depending on what they are looking for.
-    *   The user can also sign in is the want to post an item.
+    *   The user can also sign in if they want to post an item.
 
     ![image info](./public/styles/images/homePage.png)
 *   User logged in page of the Tradesies app.
@@ -66,24 +66,24 @@ An app that allows users to give and receive with no costs and to give a greater
     *   This page is only accessed by logged-in user.
     *   This page contains all the lists of posts they made.
     *   The user can filter their post using sortby dropdown.
-    *   The use can update and delete their post lists.
+    *   The user can update and delete their post lists.
 
     ![image info](./public/styles/images/yourPostPage.png)
 *   404 page of the Tradesies app.
     *   This page is shown when the data is not found 
     *   Proper message is displayed on the page by passing in message dynamically depending on the situation and is displayed on the page.
-    *   Link ref is also passed dynamically depending on where to redirect the page.
+    *   Link reference is also passed dynamically depending on where to redirect the page.
 
     ![image info](./public/styles/images/404Page.png)
 *   Trade modal view of the Tradesies app.
     *  Trade modal is used to make an offer .
-    *  It takes in the inputted values and is emailed to the post owner.
-    *   Email send notification is then invoked.
+    *  It takes in the input values and is emailed to the post owner.
+    *   Email send notification modal is then invoked.
     *   Other modals are update modal, report modal etc, which operates their functionality
 
     ![image info](./public/styles/images/modalView.png)
 *   Email Notification modal of the Tradesies app.
-    *   This modal is shown when an email is send to the post owner.
+    *   This modal is shown when an email is send to the post owner whenever an offer is made.
 
     ![image info](./public/styles/images/emailmodal.png)
 *   Gmail inbox with the notification from the tradesies.
