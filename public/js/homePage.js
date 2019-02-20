@@ -42,9 +42,9 @@ function onSignIn(googleUser) {
 // when a trade button is clicked, show the trade-modal after passing values to trade modal
 $(document).on("click", "#tradeButton", function (e) {
   e.preventDefault();
-  var myVal = $(this).attr("data-email")
+  var myVal = $(this).attr("data-id")
   console.log(myVal);
-  $('#trade-modal').find("#submitOfferButton").attr('data-email', myVal);
+  $('#trade-modal').find("#submitOfferButton").attr('data-id', myVal);
   $('#trade-modal').modal();
   $('#trade-modal').modal('open');
 });
@@ -53,9 +53,9 @@ $(document).on("click", "#tradeButton", function (e) {
 // An email notification modal is opened once an email is successfullty send.
 $("#submitOfferButton").on("click", function (e) {
   e.preventDefault();
-  var myVal = $(this).attr("data-email")
+  var myVal = $(this).attr("data-id")
   var newPost = {
-    email: myVal,
+    id: myVal,
     name: $("#offerName").val().trim(),
     contactInfo: $("#offerContactInfo").val(),
     item: $("#offerItem").val().trim(),

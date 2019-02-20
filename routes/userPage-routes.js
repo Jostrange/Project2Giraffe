@@ -14,12 +14,10 @@ module.exports = function (app) {
       raw: true,
       include: [{
         model: db.user,
-        // where : { id : db.postItem.userId }
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
-      // console.log(dbPostUser)
       res.render("userPages", { data: dbPostUser });
-      // res.json(dbPostUser)
     });
   })
 
@@ -31,12 +29,11 @@ module.exports = function (app) {
       },
       raw: true,
       include: [{
-        model: db.user
+        model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
-      // console.log(dbPostUser)
       res.render("userPages", { data: dbPostUser });
-      // res.json(dbPostUser)
     });
   })
 

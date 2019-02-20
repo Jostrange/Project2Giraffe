@@ -46,9 +46,9 @@ $(document).ready(function () {
     // when a trade button is clicked, values are passed to modal and opens the trade modal
     $(document).on("click", "#tradeButton", function (e) {
         e.preventDefault();
-        var myVal = $(this).attr("data-email")
+        var myVal = $(this).attr("data-id")
         console.log(myVal);
-        $('#trade-modal').find("#submitOfferButton").attr('data-email', myVal);
+        $('#trade-modal').find("#submitOfferButton").attr('data-id', myVal);
         $('#trade-modal').modal();
         $('#trade-modal').modal('open');
     });
@@ -56,9 +56,9 @@ $(document).ready(function () {
     // when a submit offer button is clicked(Trade),an email is send to the post owner with inputted details
     $("#submitOfferButton").on("click", function (e) {
         e.preventDefault();
-        var myVal = $(this).attr("data-email")
+        var myVal = $(this).attr("data-id")
         var newPost = {
-            email: myVal,
+            id: myVal,
             name: $("#offerName").val().trim(),
             contactInfo: $("#offerContactInfo").val(),
             item: $("#offerItem").val().trim(),

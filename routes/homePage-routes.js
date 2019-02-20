@@ -16,6 +16,7 @@ module.exports = function (app) {
       raw: true,
       include: [{
         model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
       res.render("homePage", { data: dbPostUser });
@@ -29,6 +30,7 @@ module.exports = function (app) {
       raw: true,
       include: [{
         model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
       res.render("homePage", { data: dbPostUser });
@@ -43,7 +45,8 @@ module.exports = function (app) {
       },
       raw: true,
       include: [{
-        model: db.user
+        model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
       res.render("homePage", { data: dbPostUser });
@@ -52,8 +55,10 @@ module.exports = function (app) {
 
   // Create user record only if it doesn't exist.
   app.post("/api/users", function (req, res) {
-    db.user.findOrCreate({
-      where: req.body
+    db.user.findOrCreate(
+      {
+      where: req.body,
+      attributes:['id','FullName']
     })
       .then(function (dbUser) {
         res.json(dbUser);

@@ -12,16 +12,14 @@ module.exports = function (app) {
   // GET route for getting all the datas from both postItem & user table.
   // Filtered with id.
   app.get("/yourPage/:id", function (req, res) {
-    console.log(req.params)
     db.postItem.findAll({
       raw: true,
       where: { userId: req.params.id },
       include: [{
-        model: db.user
+        model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
-      console.log(dbPostUser)
-      console.log(dbPostUser[0].userId)
       res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser });
     });
   })
@@ -36,16 +34,14 @@ module.exports = function (app) {
       },
       raw: true,
       include: [{
-        model: db.user
+        model: db.user,
+        attributes:['id','FullName']
       }]
     }).then(function (dbPostUser) {
-      console.log(dbPostUser)
       if (dbPostUser.length) {
-        console.log("i am in if")
         res.render("yourPage", { id: dbPostUser[0].userId, data: dbPostUser });
       }
       else {
-        console.log("i am in else")
         res.render("404", { url: `/yourPage/${req.params.id}`, msg: 'No Item Found', sol: 'Back to my Posts' });
       }
     });
@@ -64,23 +60,26 @@ module.exports = function (app) {
   });
 
   // PUT route for updating offers
-  app.put("/yourPage", function(req, res) {
-    console.log(req.body)
+  app.put("/yourPage", function (req, res) {
     db.postItem.update(
       req.body,
       {
         where: {
           id: req.body.id
         }
-      }).then(function(dbPost) {
-        console.log(dbPost)
+      }).then(function (dbPost) {
         res.json(dbPost);
-    });
+      });
   });
 
   // Route to send email notification.
   app.post("/api/email", function (req, res) {
-    const output = `
+    db.user.findAll({
+      raw: true,
+      attributes: ['email'],
+      where: { id: req.body.id }
+    }).then(function (dbUser) {
+      const output = `
         <h2>You have new offer in Tradesies</h2>
         <h3>Offer Details and Contact</h3>
         <hr>
@@ -97,32 +96,33 @@ module.exports = function (app) {
         <p>Tradesies Team</p>
         <p>tradesies.notification@gmail.com</p>
         `;
-    let transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: "tradesies.notification@gmail.com", 
-        pass: "notify4trade" 
-      },
+      let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: "tradesies.notification@gmail.com",
+          pass: "notify4trade"
+        },
+      });
+
+      // setup email data with unicode symbols
+      let mailOptions = {
+        from: '"Tradesies Notification" tradesies.notification@gmail.com', // sender address
+        to: `${dbUser[0].email}`, // list of receivers(tradesies.user@gmail.com)
+        subject: "You have a new offer in Tradesies", // Subject line
+        text: "Hello world?", // plain text body
+        html: output // html body
+      };
+
+      // send mail with defined transport object
+      let info = transporter.sendMail(mailOptions)
+
+      console.log("Message sent: %s", info.messageId);
+      // Preview only available when sending through an Ethereal account
+      console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+      res.redirect('/')
+      res.status(200).end()
     });
-
-    // setup email data with unicode symbols
-    let mailOptions = {
-      from: '"Tradesies Notification" tradesies.notification@gmail.com', // sender address
-      to: `${req.body.email}`, // list of receivers(tradesies.user@gmail.com)
-      subject: "You have a new offer in Tradesies", // Subject line
-      text: "Hello world?", // plain text body
-      html: output // html body
-    };
-
-    // send mail with defined transport object
-    let info = transporter.sendMail(mailOptions)
-
-    console.log("Message sent: %s", info.messageId);
-    // Preview only available when sending through an Ethereal account
-    console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
-
-    res.redirect('/')
-    res.status(200).end()
   });
 };
 
