@@ -85,7 +85,7 @@ An app that allows users to give and receive with no costs and to give a greater
 *   Email Notification modal of the Tradesies app.
     *   This modal is shown when an email is send to the post owner whenever an offer is made.
 
-    ![image info](./public/styles/images/emailmodal.png)
+    ![image info](./public/styles/images/emailModal.png)
 *   Gmail inbox with the notification from the tradesies.
     *   Mail send to the post owner by tradesies 
     notification service.
@@ -95,5 +95,11 @@ An app that allows users to give and receive with no costs and to give a greater
 
 ### Contributors :sparkles:
 ---
+[Ana Lee](https://github.com/anabellee25)
 
-![image info](./public/styles/images/contributors.png)
+[Swapna Lia Anil](https://github.com/liaswapna)
+
+[Paulie Rodriguez](https://github.com/jorgebustamante) 
+
+[Josie Strange](https://github.com/Jostrange)
+
