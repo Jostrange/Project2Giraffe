@@ -46,7 +46,6 @@ $(document).ready(function () {
             url: "/yourPage/" + userId.userId,
             type: "GET",
         }).then(function (postResponse) {
-            console.log(postResponse);
             window.location.href = "/yourPage/" + userId.userId;
         })
     })
@@ -67,7 +66,6 @@ $(document).ready(function () {
     $(document).on("click", "#tradeButton", function (e) {
         e.preventDefault();
         var myVal = $(this).attr("data-email")
-        console.log(myVal);
         $('#trade-modal').find("#submitOfferButton").attr('data-email', myVal);
         $('#trade-modal').modal();
         $('#trade-modal').modal('open');
@@ -151,7 +149,6 @@ $(document).ready(function () {
         function signOut() {
             var auth2 = gapi.auth2.getAuthInstance();
             auth2.signOut().then(function () {
-                console.log('User signed out.');
                 alert("signed out");
             });
         }
