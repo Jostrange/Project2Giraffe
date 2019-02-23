@@ -2,7 +2,7 @@
 // yourPage-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
 
-
+require("dotenv").config();
 // Requiring our models
 var db = require("../models");
 const nodemailer = require("nodemailer");
@@ -99,14 +99,14 @@ module.exports = function (app) {
       let transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-          user: "tradesies.notification@gmail.com",
-          pass: "notify4trade"
+          user: process.env.E_USER,
+          pass: process.env.E_PASSWORD
         },
       });
 
       // setup email data with unicode symbols
       let mailOptions = {
-        from: '"Tradesies Notification" tradesies.notification@gmail.com', // sender address
+        from: `"Tradesies Notification" ${process.env.E_USER}`, // sender address
         to: `${dbUser[0].email}`, // list of receivers(tradesies.user@gmail.com)
         subject: "You have a new offer in Tradesies", // Subject line
         text: "Hello world?", // plain text body
