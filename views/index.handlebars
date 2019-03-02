@@ -1,0 +1,244 @@
+{{!-- NAVBAR --}}
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <img id="logo" src="../styles/images/logo.png">
+
+    <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false"
+      data-target="navbarBasicExample">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div id="navbarBasicExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item">
+        Home
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          Sort by
+        </a>
+
+        <div class="navbar-dropdown">
+          <a class="navbar-item">
+            Food
+          </a>
+          <a class="navbar-item">
+            Products
+          </a>
+          <a class="navbar-item">
+            Services
+          </a>
+          <a class="navbar-item">
+            Clothing
+          </a>
+          <a class="navbar-item">
+            Beauty & Health
+          </a>
+          <a class="navbar-item">
+            Other
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div id="wordsinnav">Sign in to post an item!</div>
+        <div class="buttons">
+          {{!-- <a id="signup" class="button is-primary modal-trigger" data-target="signup-modal">
+            <strong>Sign up</strong>
+          </a> --}}
+          {{!-- <div class="navbar-item"> --}}
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+
+          {{!-- </div> --}}
+          {{!-- <a id="signin" class="button is-light modal-trigger" data-target="signin-modal">
+            Log in
+          </a> --}}
+          {{!-- <div id="logoutBtn" class="buttons">
+                <a class="button is-light" id="logout" >Sign out</a>
+                </a>
+              </div> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+{{!-- FEED --}}
+<div class="container" background="/styles/images/white-waves.png">
+  <br>
+  <ul id="feedcontainer" class="collection">
+    {{#each data}}
+    {{!-- THIS IS WHERE WE'LL ASSIGN THE COMPONENTS OF EACH ID INTO A STYLED SECTION --}}
+    <li id="post" data-id={{id}} class="collection-item avatar">
+      <span id="post-itemname" class="title">{{itemName}}</span>
+      <br>
+      <img id='PostImage' src="{{image}}" alt="postImage">
+      <br>
+      <span id="username" data-userId={{'user.id'}} class="title">Posted By: {{'user.FullName'}}</span>
+      <br>
+      <span id="post-category" class="title">Category: {{category}}</span>
+      <br>
+      <span id="post-description" class="title">Description: {{description}}</span>
+      <br>
+      <span id="post-description" class="title">Zipcode: {{zipcode}}</span>
+      <br>
+      <button id="tradeButton" class="button is-light modal-trigger" data-target="trade-modal">Trade?</button>
+      <button id="reportButton" class="button is-light modal-trigger" data-target="report-modal">Report</button>
+      <button id="offersButton" class="button is-light modal-trigger" data-target="offers-modal">Offers</button>
+      {{!-- <p> Test</p> --}}
+      {{!-- <p> Test</p> --}}
+      {{!-- <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a> --}}
+      {{!-- </li> --}}
+      {{/each}}
+  </ul>
+</div>
+
+{{!-- REPORT MODAL --}}
+<div class="container">
+  <div id="report-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="trade-logo" src="/styles/images/logo.png">
+      <br>
+      <br>
+      <br>
+      <div class="row">
+        <div id="reportselect" class="input-field col s12">
+          <select>
+            <option value="" disabled selected>Choose an option</option>
+            <option value="1">Inappropriate Content.</option>
+            <option value="2">It's a scam!</option>
+            <option value="3">The user who posted this is being weird.</option>
+            <option value="4">It's a pyramid scheme.</option>
+            <option value="4">Other reasons.</option>
+          </select>
+          <label>Reason for reporting:</label>
+        </div>
+        <div class="input-field col s12">
+          <br>
+          <br>
+          <textarea id="reportDescription" class="materialize-textarea" data-length="250"></textarea>
+          <label for="reportDescription">Tell Us Why</label>
+        </div>
+        <a id="submitReportButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Report!</a>
+      </div>
+    </div>
+  </div>
+  {{!-- MODAL FOR OFFER --}}
+
+  <div id="trade-modal" class="modal">
+    <div class="modal-content col s12">
+      <img id="trade-logo" src="../styles/images/logo.png">
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="offerFullName" type="text" class="validate">
+              <label for="offerFullName">Full Name</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="offerContactInfo" type="text" class="validate">
+              <label for="offerContactInfo">Phone # or Email Address</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="offerItem" type="text" class="validate">
+              <label for="offerItem">Item up for trade</label>
+            </div>
+
+            <div class="input-field col s12">
+              <textarea id="offerDescription" class="materialize-textarea" data-length="250"></textarea>
+              <label for="offerDescription">Brief Description of Item</label>
+            </div>
+
+            <div class="input-field col s6">
+              <input id="offerZipcode" type="text" class="validate">
+              <label for="offerZipcode">Zip Code</label>
+            </div>
+          </div>
+        </form>
+        <a id="submitOfferButton" class="waves-effect waves-light btn">
+          <i class="material-icons right">send</i>Trade!</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{{!-- OPEN OFFERS MODAL --}}
+<div id="offers-modal" class="modal bottom-sheet">
+  <div class="modal-content">
+    <h3 id="headerOffers">OPEN OFFERS FOR THIS POST</h3>
+    <div id="feedcontaineroffers">
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/offers.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+
+      $("#tradeButton").on("click", function (event) {
+        event.preventDefault();
+        $('#trade-modal').modal();
+      });
+
+      $("#signin").on("click", function (event) {
+        event.preventDefault();
+        $('#signin-modal').modal();
+      });
+    });
+
+    $("#offersButton").on("click", function () {
+      $("#offers-modal").modal();
+    })
+
+    $("#submitOfferButton").on("click", function () {
+      $("#trade-modal").modal('close');
+    })
+
+    $("#reportButton").on("click", function () {
+      console.log("hooooooo")
+      event.preventDefault();
+      $("#report-modal").modal();
+      $('select').formSelect();
+    });
+
+    $("#submitReportButton").on("click", function () {
+      console.log("hellooooo")
+      $("#report-modal").modal('close');
+    });
+
+
+    $("#logoutBtn").on("click", function () {
+
+
+      function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+          console.log('User signed out.');
+          alert("signed out");
+        });
+      }
+      signOut();
+    });
+  </script>
