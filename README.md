@@ -1,8 +1,5 @@
 ![image info](./public/styles/images/logo.png)
-<<<<<<< HEAD
-=======
 
->>>>>>> 40633fa31d4456cea0bbdd64033f5fd2908e23c6
 
 ### Overview
 ---
@@ -99,8 +96,7 @@ An app that allows users to give and receive with no costs and to give a greater
 
 =======
 ### Contributors :sparkles:
----
->>>>>>> 40633fa31d4456cea0bbdd64033f5fd2908e23c6
+
 
 [Ana Lee](https://github.com/anabellee25)
 
