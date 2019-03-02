@@ -40,7 +40,6 @@ An app that allows users to give and receive with no costs and to give a greater
 }
 ```
 
-<<<<<<< HEAD
 ### Demos :earth_asia:
 ---
 * Tradesies
@@ -107,8 +106,7 @@ An app that allows users to give and receive with no costs and to give a greater
 [Josie Strange](https://github.com/Jostrange)
 
 ### Screenshot
----
-<<<<<<< HEAD
+
 [Ana Lee](https://github.com/anabellee25)
 
 [Swapna Lia Anil](https://github.com/liaswapna)
@@ -127,4 +125,4 @@ An app that allows users to give and receive with no costs and to give a greater
     ![image info](./public/styles/images/mypost.png)
 
 @Tradesies
->>>>>>> 40633fa31d4456cea0bbdd64033f5fd2908e23c6
+
