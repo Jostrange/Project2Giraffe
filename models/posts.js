@@ -24,16 +24,20 @@ module.exports = function(sequelize, DataTypes) {
       len: [1]
     }
   });
-  //commenting this out until we have more understanding of how we are routing/using the data
 
+  // Creates associates
   postItem.associate = function(models) {
     postItem.belongsTo(models.user, {
-      // onDelete: "CASCADE",
       foreignKey: {
         allowNull: false
       }
     });
   };
+  // postItem.associate = function(models) {
+  //   postItem.hasMany(models.offers, {
+  //     onDelete: "cascade"
+  //   });
+  // };
 
   return postItem;
 };

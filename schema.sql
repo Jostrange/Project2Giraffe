@@ -13,11 +13,10 @@ USE Tradesies;
 
 
 -- CREATE TABLE offers(
--- offerContactInfo varchar(255),
--- offerFullName varchar(255),
--- offerItemDescription varchar(255),
--- offerItemzip integer(11),
--- offerItemName varchar(255));
+-- offer_contact varchar(255),
+-- offer_category varchar(255),
+-- offer_description varchar(255),
+-- offer_PhotoURL varchar(255));
 
 -- SELECT * FROM offers ;
 

@@ -1,15 +1,13 @@
-/* .list-group-item {
-  line-height: 2.5;
-} */
+
 html { 
 overflow-y:scroll; 
-height: 100%;
+height: 100vh;
 }
 
 body {
 min-height: 100% !important;
-
-background-image: url(/styles/images/white-waves.png)
+background-image: url(/styles/images/white-waves.png);
+background-repeat: repeat;
 }
 
 .navbar {
@@ -25,35 +23,20 @@ background-image: url(/styles/images/white-waves.png)
 }
 
 #wordsinnav {
-  padding-top: 5px;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 20px;
   font-weight: 400;
-  color: navy;
 }
-/* 
-#signup {
-  background-color: navy;
-  width: 110px;
-}
-
-#signin {
-  font-weight: 500;
-  width: 110px;
-} */
 
 #feedcontainer {
   margin: 5px auto;
-  width: 80%;
-}
-
-#feedcontaineroffers {
-  margin: 5px auto;
+  margin-bottom: 200px;
   width: 85%;
 }
 
 .modal {
   max-height: 80%;
+  overflow-y:scroll; 
 }
 
 #modal-logo {
@@ -90,7 +73,7 @@ background-image: url(/styles/images/white-waves.png)
   color: navy;
 }
 
-#submitOfferButton {
+#submitOfferButton{
   width: 40%;
   text-align: center;
   margin: auto;
@@ -111,7 +94,7 @@ background-image: url(/styles/images/white-waves.png)
   font-size: 16px;
 }
 
-#postmodal-logo {
+#postmodal-logo,#updatemodal-logo {
   text-align: center;
   width: 200px;
   letter-spacing: 80px;
@@ -135,132 +118,38 @@ text-align: center;
   border: 2px solid navy;
 }
 
-#submitPostBtn {
+#submitPostBtn,#emailButton {
   background-color: navy;
 }
 
-.userpagegoogleapi{
-  display: none;
+.emailNotify{
+  font-size: 30px;
+  color: navy;
 }
-
-footer {
+.emailBorder{
+  border: 2px double navy;
+}
+footer{
+  background-color:navy !important;
+}
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+.page-footer {
   position: fixed;
-  left: 0;
   bottom: 0;
   width: 100%;
-  height: 20px;
-  background-color: navy;
-  color: white;
-  text-align: center;
+  font-size: 12px;
 }
 
-#post {
-  border: lightgray;
-  border-style: double;
+.message404{
+  height: 100vh;
 }
-
-#post-itemname {
-  font-size: 30px;
-  border-bottom: 2px solid darkgray;
-}
-
-#PostImage{
-  margin: 20px auto;
-  text-align: center;
-  max-height: 200px;
-  max-width: 300px;
-}
-
-#postusername {
-  margin: 10px auto;
-  font-size: 20px;
-  font-weight: 500;
-  color: navy;
-  border-bottom: dashed lightgray 2px;
-}
-
-#post-category {
-  font-weight: 450;
-}
-
-#post-description{
-  font-weight: 400;
-}
-
-#post-zipcode {
-  font-weight: 350;
-}
-
-#tradeButton {
-  width: 120px;
-  text-align: center;
-  margin: 10px 30px 10px 0;
-  background-color: navy;
-  color: white;
-}
-
-#tradeButton:hover {
-  background-color: white;
-  border: 2px solid navy;
-  color: navy;
-}
-
-#reportButton {
-  float: right;
-  width: 120px;
-  margin: 10px 0px 10px 10px;
-  background-color: white;
-  border: 2px solid red;
-  color: red;
-}
-
-#reportButton:hover {
-  background-color: red;
-  color: white;
-}
-
-#offersButton {
-  float: right;
-  width: 120px;
-  margin: 10px;
-  color: navy;
-}
-
-#offersButton:hover {
-  color:white;
-  background-color: navy;
-
-}
-
-#offerItem {
-
-}
-
-#headerOffers {
-  text-align: center;
-  font-size: 25px;
-  border-bottom: solid 2px gray;
-}
-
-.offercard {
-  border: lightgray;
-  border-style: double;
-  font-size: 16px;
-}
-
-#deleteButton {
-  margin: 10px 0;
-  color: red;
-  border:red 2px solid;
-  background-color: white;
-}
-
-#deleteButton:hover {
-  background-color: red;
-  color: white;
-
-}
-
-#submitReportButton {
+#submitReportButton,#submitUpdateBtn{
   background-color: navy;
 }

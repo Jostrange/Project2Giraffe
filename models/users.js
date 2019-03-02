@@ -14,10 +14,10 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: false
     }
   });
-  //commenting this out until we have more understanding of how we are routing/using the data
+
+  // Creates associates
   user.associate = function(models) {
     user.hasMany(models.postItem, {
-      // foreignKey: "user_id",
       onDelete: "cascade"
     });
   };

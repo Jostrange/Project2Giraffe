@@ -1,35 +1,33 @@
-module.exports = function (sequelize, DataTypes) {
+module.exports = function(sequelize, DataTypes) {
   var offers = sequelize.define("offers", {
-    offerItemName: {
-      type: DataTypes.TEXT,
+    zipcode: {
+      type: DataTypes.INTEGER,
       allowNull: false
     },
-    offerItemZip: {
-      type: DataTypes.INTEGER,
+    category: {
+      type: DataTypes.TEXT,
       allowNull: false,
       len: [1]
     },
-    offerItemDescription: {
+    descriptionOfItem: {
       type: DataTypes.TEXT,
-      allowNull: false
+      allowNull: false,
+      len: [1]
     },
-    offerFullName: {
-      type: DataTypes.TEXT,
-      allowNull: false
-    },
-    offerContactInfo: {
-      type: DataTypes.TEXT,
-      allowNull: false
+    photoURL: {
+      type: DataTypes.BLOB,
+      allowNull: false,
+      len: [1]
     }
   });
+  // Creates associates
+  // offers.associate = function(models) {
+  //   offers.belongsTo(models.postItem, {
+  //     foreignKey: {
+  //       allowNull: false
+  //     }
+  //   });
+  // };
 
-  //commenting this out until we have more understanding of how we are routing/using the data
-
-  offers.associate = function(models) {
-    offers.belongsTo(models.postItem, {
-      // foreignKey: "user_id",
-      onDelete: "cascade"
-    });
-  };
   return offers;
 };

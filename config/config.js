@@ -1,7 +1,8 @@
-{
+require("dotenv").config();
+module.exports = {
   "development": {
-    "username": "root",
-    "password": "Googleit1232",
+    "username": process.env.DB_USER,
+    "password": process.env.DB_PASSWORD,
     "database": "Tradesies",
     "host": "localhost",
     "dialect": "mysql"
@@ -18,4 +19,4 @@
     "use_env_variable": "JAWSDB_URL",
     "dialect": "mysql"
   }
-}
+};
